@@ -1,0 +1,876 @@
+{
+  "packs": [
+    {
+      "code": "python_functions",
+      "title": "Python Functions & Modular Programming",
+      "keywords": ["python", "function", "functions", "python functions", "def", "parameters", "lambda", "return"],
+      "description": "Master the anatomy of Python functions, arguments, return values, variable scope (LEGB), and lambda expressions.",
+      "subtopics": [
+        {
+          "title": "What is a Function & Definition Syntax",
+          "concept_tag": "py_func_def",
+          "order": 1,
+          "explanations": {
+            "beginner": {
+              "body_markdown": "### What is a Function in Python?\n\nA function is a reusable block of code that performs a specific task. Instead of rewriting code 10 times, you define it once using `def` and call it whenever needed!\n\n```python\ndef greet(name):\n    return f\"Hello, {name}!\"\n\n# Calling the function\nmessage = greet(\"Antigravity\")\nprint(message)  # Output: Hello, Antigravity!\n```\n- **def keyword**: Tells Python you are defining a function.\n- **Function name**: Follows standard variable naming rules.\n- **Parameters**: Inputs enclosed in parentheses `()`.\n- **Colon `:` and Indentation**: Defines the function body.",
+              "visual_spec": {
+                "type": "FunctionMachine",
+                "props": {
+                  "functionName": "greet(name)",
+                  "inputVal": "\"Antigravity\"",
+                  "processStep": "f\"Hello, {name}!\"",
+                  "outputVal": "\"Hello, Antigravity!\"",
+                  "caption": "A function takes input, executes logic, and returns output."
+                }
+              }
+            },
+            "intermediate": {
+              "body_markdown": "### Functions as First-Class Citizens\n\nIn Python, functions are first-class objects. You can pass them as arguments, return them from other functions, and assign them to variables.",
+              "visual_spec": {
+                "type": "FunctionMachine",
+                "props": {
+                  "functionName": "square(x)",
+                  "inputVal": "5",
+                  "processStep": "5 * 5",
+                  "outputVal": "25",
+                  "caption": "Functions are first-class objects."
+                }
+              }
+            },
+            "advanced": {
+              "body_markdown": "### Closures and Decorator Foundations\n\nA closure is a nested function that remembers and retains access to variables from its enclosing lexical scope even after the outer function has finished executing.",
+              "visual_spec": {
+                "type": "FunctionMachine",
+                "props": {
+                  "functionName": "make_multiplier(n)",
+                  "inputVal": "n=3, x=10",
+                  "processStep": "x * n (Closure retains n=3)",
+                  "outputVal": "30",
+                  "caption": "Closure capturing enclosing scope state."
+                }
+              }
+            }
+          },
+          "flashcards": [
+            {"front": "What keyword is used to define a function in Python?", "back": "`def` (e.g., `def my_func():`).", "concept_tag": "py_func_def"},
+            {"front": "What is the difference between a parameter and an argument?", "back": "A parameter is the variable in the function definition. An argument is the actual value passed during a function call.", "concept_tag": "py_func_def"},
+            {"front": "What does a Python function return by default if no return statement is executed?", "back": "`None`.", "concept_tag": "py_func_def"},
+            {"front": "How do you define docstrings in Python functions?", "back": "Using triple quotes `\"\"\"docstring\"\"\"` as the very first line inside the function body.", "concept_tag": "py_func_def"}
+          ],
+          "questions": [
+            {
+              "stem": "Which keyword is used to declare a function in Python?",
+              "options_json": ["def", "function", "func", "declare"],
+              "correct_index": 0,
+              "difficulty": 1,
+              "expected_time_seconds": 20,
+              "explanation": "In Python, `def` is the official keyword used to define functions.",
+              "misconception_hints_json": {}
+            },
+            {
+              "stem": "What is the output of:\ndef add(a, b=2):\n    return a + b\nprint(add(3))",
+              "options_json": ["5", "3", "Error: missing argument", "None"],
+              "correct_index": 0,
+              "difficulty": 2,
+              "expected_time_seconds": 30,
+              "explanation": "Since `b` has a default value of 2, calling `add(3)` evaluates to 3 + 2 = 5.",
+              "misconception_hints_json": {}
+            },
+            {
+              "stem": "What will `print(type(lambda x: x))` output in Python 3?",
+              "options_json": ["<class 'function'>", "<class 'lambda'>", "<class 'object'>", "<class 'expression'>"],
+              "correct_index": 0,
+              "difficulty": 3,
+              "expected_time_seconds": 30,
+              "explanation": "Lambda functions are first-class function instances of type `<class 'function'>`.",
+              "misconception_hints_json": {}
+            },
+            {
+              "stem": "What is the output of the following snippet?\ndef func(a, lst=[]):\n    lst.append(a)\n    return lst\nprint(func(1))\nprint(func(2))",
+              "options_json": ["[1] and then [1, 2]", "[1] and then [2]", "[1, 2] and then [1, 2]", "Error"],
+              "correct_index": 0,
+              "difficulty": 4,
+              "expected_time_seconds": 45,
+              "explanation": "Default mutable arguments in Python are evaluated once at function definition time, so the list accumulates elements across calls.",
+              "misconception_hints_json": {"[1] and then [2]": "Watch out! Python's default mutable argument trap means `lst` persists across calls."}
+            }
+          ]
+        },
+        {
+          "title": "Parameters, *args and **kwargs",
+          "concept_tag": "py_args_kwargs",
+          "order": 2,
+          "explanations": {
+            "beginner": {
+              "body_markdown": "### Positional vs Keyword Arguments & Variable Length\n\n- **Positional**: Values matched by order (`func(1, 2)`).\n- **Keyword**: Values matched by parameter name (`func(b=2, a=1)`).\n- **`*args`**: Collects arbitrary extra positional arguments as a **tuple**.\n- **`**kwargs`**: Collects arbitrary extra keyword arguments as a **dictionary**.",
+              "visual_spec": {
+                "type": "FunctionMachine",
+                "props": {
+                  "functionName": "calc(*args, **kwargs)",
+                  "inputVal": "1, 2, mode=\"sum\"",
+                  "processStep": "args=(1,2), kwargs={'mode':'sum'}",
+                  "outputVal": "3",
+                  "caption": "*args gathers tuple, **kwargs gathers dict."
+                }
+              }
+            },
+            "intermediate": {
+              "body_markdown": "### Keyword-Only and Positional-Only Parameters (PEP 570)\n\n- Use `/` to mark positional-only arguments: `def f(pos_only, /, standard, *, kw_only):`\n- Use `*` to force subsequent arguments to be keyword-only.",
+              "visual_spec": {
+                "type": "FunctionMachine",
+                "props": {
+                  "functionName": "f(a, /, b, *, c)",
+                  "inputVal": "1, b=2, c=3",
+                  "processStep": "Enforces parameter delivery modes",
+                  "outputVal": "Validated Call",
+                  "caption": "Positional-only (/) and keyword-only (*) syntax."
+                }
+              }
+            },
+            "advanced": {
+              "body_markdown": "### Argument Unpacking and High Performance Parameter Dispatch\n\nUsing `*` and `**` on iterables and dicts during calls: `f(*my_tuple, **my_dict)` unpacks dynamically into the function signature at bytecode level.",
+              "visual_spec": {
+                "type": "FunctionMachine",
+                "props": {
+                  "functionName": "dispatch(*args, **kwargs)",
+                  "inputVal": "Dynamic tuple & dict",
+                  "processStep": "Bytecode CALL_FUNCTION_EX",
+                  "outputVal": "High-speed dispatch",
+                  "caption": "Bytecode level argument expansion."
+                }
+              }
+            }
+          },
+          "flashcards": [
+            {"front": "What data structure does `*args` pack arguments into?", "back": "A Tuple.", "concept_tag": "py_args_kwargs"},
+            {"front": "What data structure does `**kwargs` pack arguments into?", "back": "A Dictionary.", "concept_tag": "py_args_kwargs"},
+            {"front": "In `def f(a, /, b, *, c):`, what kind of argument is `a`?", "back": "A Positional-Only argument (cannot be passed as `a=1`).", "concept_tag": "py_args_kwargs"}
+          ],
+          "questions": [
+            {
+              "stem": "In Python, what is the type of `args` inside a function defined with `def foo(*args):`?",
+              "options_json": ["tuple", "list", "dict", "set"],
+              "correct_index": 0,
+              "difficulty": 1,
+              "expected_time_seconds": 20,
+              "explanation": "`*args` collects positional arguments into an immutable `tuple`.",
+              "misconception_hints_json": {}
+            },
+            {
+              "stem": "What is the output of:\ndef show(**kwargs):\n    return list(kwargs.keys())\nprint(show(x=10, y=20))",
+              "options_json": ["['x', 'y']", "[10, 20]", "{'x': 10, 'y': 20}", "('x', 'y')"],
+              "correct_index": 0,
+              "difficulty": 2,
+              "expected_time_seconds": 30,
+              "explanation": "`kwargs` is a dictionary `{'x': 10, 'y': 20}`, so `list(kwargs.keys())` gives `['x', 'y']`.",
+              "misconception_hints_json": {}
+            },
+            {
+              "stem": "What happens if a function is defined as `def test(a, *, b):` and called as `test(1, 2)`?",
+              "options_json": ["TypeError: test() takes 1 positional argument but 2 were given", "Returns (1, 2)", "Warning printed", "b defaults to None"],
+              "correct_index": 0,
+              "difficulty": 3,
+              "expected_time_seconds": 35,
+              "explanation": "Parameters after `*` are keyword-only and must be passed with a keyword (e.g. `test(1, b=2)`).",
+              "misconception_hints_json": {}
+            },
+            {
+              "stem": "What is the correct order of parameters in a Python function header?",
+              "options_json": [
+                "Positional -> Default -> *args -> Keyword-only -> **kwargs",
+                "*args -> Positional -> **kwargs -> Default",
+                "Default -> Positional -> **kwargs -> *args",
+                "**kwargs -> *args -> Positional -> Default"
+              ],
+              "correct_index": 0,
+              "difficulty": 4,
+              "expected_time_seconds": 40,
+              "explanation": "Python syntax requires: standard positional -> default parameters -> *args -> keyword-only -> **kwargs.",
+              "misconception_hints_json": {}
+            }
+          ]
+        },
+        {
+          "title": "Variable Scope and LEGB Rule",
+          "concept_tag": "py_scope_legb",
+          "order": 3,
+          "explanations": {
+            "beginner": {
+              "body_markdown": "### The LEGB Scope Lookup Rule\n\nWhen Python looks up a variable name, it searches in this exact order:\n1. **L - Local**: Inside the current function.\n2. **E - Enclosing**: Inside enclosing/outer functions.\n3. **G - Global**: At top-level module.\n4. **B - Built-in**: Python built-in namespace (`len`, `print`, `range`).",
+              "visual_spec": {
+                "type": "CallStack",
+                "props": {
+                  "frames": [
+                    {"name": "Local Scope", "vars": "x = 10", "active": true},
+                    {"name": "Enclosing (Outer)", "vars": "y = 20", "active": false},
+                    {"name": "Global Scope", "vars": "z = 30", "active": false},
+                    {"name": "Built-in Scope", "vars": "len, print, sum", "active": false}
+                  ],
+                  "caption": "Python searches scopes outwards: Local -> Enclosing -> Global -> Built-in (LEGB)."
+                }
+              }
+            },
+            "intermediate": {
+              "body_markdown": "### Modifying Outer Variables: `global` and `nonlocal`\n\n- `global x`: Declares that `x` belongs to the top-level module scope.\n- `nonlocal x`: Modifies a variable in the nearest enclosing non-global function scope.",
+              "visual_spec": {
+                "type": "CallStack",
+                "props": {
+                  "frames": [
+                    {"name": "Inner Function", "vars": "nonlocal count -> updates outer count", "active": true},
+                    {"name": "Outer Function", "vars": "count = 1", "active": false},
+                    {"name": "Module Global", "vars": "APP_VERSION = 1.0", "active": false}
+                  ],
+                  "caption": "nonlocal rebinds variables across nested lexical closures."
+                }
+              }
+            },
+            "advanced": {
+              "body_markdown": "### Bytecode Variable Resolution: LOAD_FAST vs LOAD_DEREF vs LOAD_GLOBAL\n\n- Local variables are resolved in $O(1)$ via C array index (`LOAD_FAST`).\n- Closure variables use `LOAD_DEREF` on cell objects.\n- Global variables use hash table lookup (`LOAD_GLOBAL`).",
+              "visual_spec": {
+                "type": "CallStack",
+                "props": {
+                  "frames": [
+                    {"name": "C CPython VM Frame", "vars": "fastlocals array (LOAD_FAST)", "active": true},
+                    {"name": "Cell Objects", "vars": "co_freevars / co_cellvars", "active": false},
+                    {"name": "Globals Dict", "vars": "f_globals hash table", "active": false}
+                  ],
+                  "caption": "Low-level Python bytecode execution model."
+                }
+              }
+            }
+          },
+          "flashcards": [
+            {"front": "What does LEGB stand for in Python scope resolution?", "back": "Local, Enclosing, Global, Built-in.", "concept_tag": "py_scope_legb"},
+            {"front": "When would you use the `nonlocal` keyword?", "back": "To rebind a variable in an outer (enclosing) function scope without making it global.", "concept_tag": "py_scope_legb"},
+            {"front": "Why does assigning `x = x + 1` inside a function fail if `x` is defined globally without `global x`?", "back": "Python treats any variable assigned inside a function as local, causing an `UnboundLocalError` when accessed before assignment.", "concept_tag": "py_scope_legb"}
+          ],
+          "questions": [
+            {
+              "stem": "In what order does Python resolve variable identifiers?",
+              "options_json": [
+                "Local -> Enclosing -> Global -> Built-in (LEGB)",
+                "Global -> Local -> Enclosing -> Built-in",
+                "Built-in -> Global -> Enclosing -> Local",
+                "Local -> Global -> Enclosing -> Built-in"
+              ],
+              "correct_index": 0,
+              "difficulty": 1,
+              "expected_time_seconds": 25,
+              "explanation": "Python strictly follows LEGB: Local, Enclosing, Global, Built-in.",
+              "misconception_hints_json": {}
+            },
+            {
+              "stem": "What is the output of the following code?\nx = 10\ndef foo():\n    x = 20\nfoo()\nprint(x)",
+              "options_json": ["10", "20", "None", "UnboundLocalError"],
+              "correct_index": 0,
+              "difficulty": 2,
+              "expected_time_seconds": 25,
+              "explanation": "`x = 20` inside `foo()` creates a local variable `x`, leaving global `x = 10` untouched.",
+              "misconception_hints_json": {}
+            },
+            {
+              "stem": "What error occurs in this code snippet?\nx = 5\ndef bar():\n    print(x)\n    x = 10\nbar()",
+              "options_json": ["UnboundLocalError", "NameError", "SyntaxError", "Prints 5 then assigns 10"],
+              "correct_index": 0,
+              "difficulty": 3,
+              "expected_time_seconds": 35,
+              "explanation": "Because `x` is assigned later in `bar()`, Python marks `x` as local for the entire scope, raising `UnboundLocalError` when `print(x)` is evaluated before assignment.",
+              "misconception_hints_json": {}
+            },
+            {
+              "stem": "Which keyword allows an inner nested function to modify a variable in its immediately surrounding outer function?",
+              "options_json": ["nonlocal", "global", "outer", "parent"],
+              "correct_index": 0,
+              "difficulty": 2,
+              "expected_time_seconds": 25,
+              "explanation": "`nonlocal` is the dedicated Python keyword for rebinding enclosing closure variables.",
+              "misconception_hints_json": {}
+            }
+          ]
+        },
+        {
+          "title": "Lambda Functions & Higher Order Functions",
+          "concept_tag": "py_lambda_hof",
+          "order": 4,
+          "explanations": {
+            "beginner": {
+              "body_markdown": "### What is a Lambda Function?\n\nA **lambda function** is a small, anonymous inline function defined with the `lambda` keyword.\n\n- **Syntax**: `lambda arguments: expression`\n- Example: `square = lambda x: x ** 2`\n- Used with built-in higher-order functions: `map()`, `filter()`, `sorted()`.",
+              "visual_spec": {
+                "type": "FunctionMachine",
+                "props": {
+                  "functionName": "lambda x: x * 2",
+                  "inputVal": "7",
+                  "processStep": "7 * 2",
+                  "outputVal": "14",
+                  "caption": "Inline anonymous lambda transformation."
+                }
+              }
+            },
+            "intermediate": {
+              "body_markdown": "### Using Lambdas with `map()`, `filter()`, and `sorted()`\n\n```python\nnums = [1, 2, 3, 4, 5, 6]\nevens = list(filter(lambda x: x % 2 == 0, nums))  # [2, 4, 6]\nsquares = list(map(lambda x: x**2, evens))        # [4, 16, 36]\n```",
+              "visual_spec": {
+                "type": "FunctionMachine",
+                "props": {
+                  "functionName": "filter(lambda x: x%2==0)",
+                  "inputVal": "[1, 2, 3, 4, 5, 6]",
+                  "processStep": "Filter even predicate",
+                  "outputVal": "[2, 4, 6]",
+                  "caption": "Stream filtering using lambda predicates."
+                }
+              }
+            },
+            "advanced": {
+              "body_markdown": "### Functional Currying and `functools.partial`\n\nFunctional patterns enable composition: `partial(func, *pre_args)` creates specialized single-arity functions from multi-arity primitives without lambda overhead.",
+              "visual_spec": {
+                "type": "FunctionMachine",
+                "props": {
+                  "functionName": "functools.partial",
+                  "inputVal": "f(x, y) with x=2",
+                  "processStep": "Currying binary operation",
+                  "outputVal": "f_specialized(y)",
+                  "caption": "Currying and partial function composition."
+                }
+              }
+            }
+          },
+          "flashcards": [
+            {"front": "What is the syntax of a Python lambda function?", "back": "`lambda arg1, arg2: expression`.", "concept_tag": "py_lambda_hof"},
+            {"front": "Can a Python lambda contain statements like `if/else`, loops, or `return`?", "back": "It can contain conditional expressions (`x if cond else y`), but cannot contain statements, loops, or explicit `return`.", "concept_tag": "py_lambda_hof"},
+            {"front": "What does `filter(lambda x: x > 0, [-1, 2, -3, 4])` yield when converted to a list?", "back": "`[2, 4]`.", "concept_tag": "py_lambda_hof"}
+          ],
+          "questions": [
+            {
+              "stem": "What is the result of `(lambda a, b: a * b + 2)(3, 4)` in Python?",
+              "options_json": ["14", "12", "24", "SyntaxError"],
+              "correct_index": 0,
+              "difficulty": 1,
+              "expected_time_seconds": 25,
+              "explanation": "Evaluates expression: 3 × 4 + 2 = 12 + 2 = 14.",
+              "misconception_hints_json": {}
+            },
+            {
+              "stem": "Which of the following sorts a list of tuples `pairs = [(1, 'one'), (3, 'three'), (2, 'two')]` by the second string element?",
+              "options_json": [
+                "sorted(pairs, key=lambda x: x[1])",
+                "sorted(pairs, key=lambda x: x[0])",
+                "pairs.sort(key=1)",
+                "sorted(pairs, by='second')"
+              ],
+              "correct_index": 0,
+              "difficulty": 2,
+              "expected_time_seconds": 35,
+              "explanation": "`key=lambda x: x[1]` instructs the sorting algorithm to compare the 2nd tuple element.",
+              "misconception_hints_json": {}
+            },
+            {
+              "stem": "What is the output of `list(map(lambda x: x.upper(), ['a', 'b', 'c']))`?",
+              "options_json": ["['A', 'B', 'C']", "['a', 'b', 'c']", "['ABC']", "TypeError"],
+              "correct_index": 0,
+              "difficulty": 1,
+              "expected_time_seconds": 20,
+              "explanation": "`map()` applies the uppercase transform to each string element.",
+              "misconception_hints_json": {}
+            },
+            {
+              "stem": "What is the output of this list comprehension vs lambda trap?\nfuncs = [lambda x: x + i for i in range(3)]\nprint([f(10) for f in funcs])",
+              "options_json": ["[12, 12, 12]", "[10, 11, 12]", "[11, 12, 13]", "Error"],
+              "correct_index": 0,
+              "difficulty": 5,
+              "expected_time_seconds": 60,
+              "explanation": "Python closures bind variables by reference, not value. When invoked, `i = 2` for all lambdas, so each returns 10 + 2 = 12.",
+              "misconception_hints_json": {"[10, 11, 12]": "Late binding trap: all closures look up the final value of loop variable i (which is 2)."}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "data_structures",
+      "title": "Fundamental Data Structures & Algorithms",
+      "keywords": ["data structures", "dsa", "arrays", "linked list", "stack", "queue", "trees", "hash table"],
+      "description": "Essential data structures including dynamic arrays, singly/doubly linked lists, stacks, queues, hash tables, and binary trees.",
+      "subtopics": [
+        {
+          "title": "Arrays and Linked Lists",
+          "concept_tag": "dsa_arrays_lists",
+          "order": 1,
+          "explanations": {
+            "beginner": {
+              "body_markdown": "### Arrays vs Linked Lists\n\n- **Array**: Contiguous memory block with $O(1)$ random access by index, but $O(N)$ insertion/deletion.\n- **Linked List**: Nodes containing data and pointer to the next node. $O(1)$ insertion at head, but $O(N)$ lookup.",
+              "visual_spec": {
+                "type": "ArrayVisualizer",
+                "props": {
+                  "elements": [10, 20, 30, 40, 50],
+                  "pointers": {"Head": 0, "Current": 2, "Tail": 4},
+                  "caption": "Array indexing (0 to 4) with direct pointer traversal."
+                }
+              }
+            },
+            "intermediate": {
+              "body_markdown": "### Memory Locality & Cache Performance\n\nArrays provide superior cache locality due to spatial proximity of elements, while linked lists suffer from pointer chasing and memory fragmentation.",
+              "visual_spec": {
+                "type": "ArrayVisualizer",
+                "props": {
+                  "elements": [5, 12, 19, 23, 45, 67],
+                  "pointers": {"CacheLineStart": 0, "Target": 3},
+                  "caption": "Continuous RAM allocation enabling hardware cache line prefetching."
+                }
+              }
+            },
+            "advanced": {
+              "body_markdown": "### Amortized Analysis of Dynamic Array Resizing\n\nDoubling array capacity on overflow yields an amortized insertion cost of $O(1)$ per operation over $N$ insertions.",
+              "visual_spec": {
+                "type": "ArrayVisualizer",
+                "props": {
+                  "elements": [1, 2, 3, 4, null, null, null, null],
+                  "pointers": {"Size": 4, "Capacity": 8},
+                  "caption": "Dynamic Array doubling geometric resizing policy."
+                }
+              }
+            }
+          },
+          "flashcards": [
+            {"front": "What is the time complexity of accessing an array element by index?", "back": "O(1) constant time.", "concept_tag": "dsa_arrays_lists"},
+            {"front": "What is the time complexity of inserting a node at the head of a singly linked list?", "back": "O(1) constant time.", "concept_tag": "dsa_arrays_lists"},
+            {"front": "What is the primary drawback of linked lists compared to arrays?", "back": "Poor cache locality and extra memory overhead for pointers.", "concept_tag": "dsa_arrays_lists"}
+          ],
+          "questions": [
+            {
+              "stem": "What is the worst-case time complexity of searching for an unsorted element in a standard singly linked list of size N?",
+              "options_json": ["O(N)", "O(1)", "O(log N)", "O(N²)"],
+              "correct_index": 0,
+              "difficulty": 1,
+              "expected_time_seconds": 25,
+              "explanation": "Searching requires linear traversal through nodes: O(N).",
+              "misconception_hints_json": {}
+            },
+            {
+              "stem": "Why does a dynamic array have amortized O(1) append time complexity when using doubling growth strategy?",
+              "options_json": [
+                "Because expensive O(N) reallocations happen exponentially less frequently as size increases",
+                "Memory is allocated continuously in disk",
+                "Pointers are omitted completely",
+                "Garbage collector frees old memory instantly"
+              ],
+              "correct_index": 0,
+              "difficulty": 3,
+              "expected_time_seconds": 40,
+              "explanation": "Over N operations, total resize copy work equals N + N/2 + N/4 + ... ≈ 2N, giving 2N / N = O(1) amortized cost per append.",
+              "misconception_hints_json": {}
+            }
+          ]
+        },
+        {
+          "title": "Stacks, Queues, and Hash Tables",
+          "concept_tag": "dsa_stacks_queues_hash",
+          "order": 2,
+          "explanations": {
+            "beginner": {
+              "body_markdown": "### Stacks (LIFO), Queues (FIFO), and Hash Tables ($O(1)$ Lookups)\n\n- **Stack**: Last-In-First-Out (Undo button, Call stack, Browser back).\n- **Queue**: First-In-First-Out (Print queues, CPU task scheduling).\n- **Hash Table**: Key-value store using hash functions for instant average $O(1)$ search, insert, and delete.",
+              "visual_spec": {
+                "type": "CallStack",
+                "props": {
+                  "frames": [
+                    {"name": "Stack Top (Push / Pop)", "vars": "Top Element", "active": true},
+                    {"name": "Middle Element", "vars": "Data 2", "active": false},
+                    {"name": "Stack Bottom", "vars": "Data 1", "active": false}
+                  ],
+                  "caption": "LIFO execution stack structure."
+                }
+              }
+            },
+            "intermediate": {
+              "body_markdown": "### Hash Collisions & Resolution Strategies\n\n- **Separate Chaining**: Nodes with same hash index are linked in a list.\n- **Open Addressing**: Linear probing, quadratic probing, and double hashing search for the next available slot.",
+              "visual_spec": {
+                "type": "FlowChart",
+                "props": {
+                  "nodes": [
+                    {"id": "key", "label": "Key 'user_123'", "color": "#6366F1"},
+                    {"id": "hash", "label": "Hash Function: h(k) % TableSize", "color": "#F59E0B"},
+                    {"id": "bucket", "label": "Bucket Index [7]", "color": "#10B981"}
+                  ],
+                  "edges": [
+                    {"from": "key", "to": "hash"},
+                    {"from": "hash", "to": "bucket"}
+                  ],
+                  "caption": "Hash map key indexing pipeline."
+                }
+              }
+            },
+            "advanced": {
+              "body_markdown": "### Robin Hood Hashing and Consistent Hashing\n\nRobin Hood hashing minimizes variance in probe lengths by stealing from rich elements (low displacement) to give to poor elements (high displacement).",
+              "visual_spec": {
+                "type": "FlowChart",
+                "props": {
+                  "nodes": [
+                    {"id": "rh", "label": "Robin Hood Probe Exchange", "color": "#8B5CF6"},
+                    {"id": "var", "label": "Minimizes Max PSL (Probe Sequence Length)", "color": "#10B981"}
+                  ],
+                  "edges": [{"from": "rh", "to": "var"}],
+                  "caption": "High performance collision mitigation algorithms."
+                }
+              }
+            }
+          },
+          "flashcards": [
+            {"front": "What principle governs a Stack?", "back": "LIFO (Last In, First Out).", "concept_tag": "dsa_stacks_queues_hash"},
+            {"front": "What principle governs a Queue?", "back": "FIFO (First In, First Out).", "concept_tag": "dsa_stacks_queues_hash"},
+            {"front": "What is the average time complexity of key lookup in a Hash Table?", "back": "O(1) constant time.", "concept_tag": "dsa_stacks_queues_hash"}
+          ],
+          "questions": [
+            {
+              "stem": "Which data structure is best suited for evaluating arithmetic expressions in Reverse Polish Notation (RPN)?",
+              "options_json": ["Stack", "Queue", "Binary Search Tree", "Linked List"],
+              "correct_index": 0,
+              "difficulty": 2,
+              "expected_time_seconds": 30,
+              "explanation": "Post-fix evaluation pushes operands onto a Stack and pops the top two when an operator is encountered.",
+              "misconception_hints_json": {}
+            },
+            {
+              "stem": "In a hash table with N items and table size M, what is the load factor α?",
+              "options_json": ["α = N / M", "α = M / N", "α = N × M", "α = N² / M"],
+              "correct_index": 0,
+              "difficulty": 2,
+              "expected_time_seconds": 25,
+              "explanation": "Load factor α is defined as the ratio of number of stored elements N to total capacity M.",
+              "misconception_hints_json": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "machine_learning",
+      "title": "Machine Learning Foundations",
+      "keywords": ["machine learning", "ml", "ai", "artificial intelligence", "regression", "classification", "neural networks", "gradient descent"],
+      "description": "Foundational principles of Machine Learning: Supervised vs Unsupervised, Linear Regression, Loss Functions, Gradient Descent, and Neural Networks.",
+      "subtopics": [
+        {
+          "title": "Supervised Learning & Linear Regression",
+          "concept_tag": "ml_supervised_regression",
+          "order": 1,
+          "explanations": {
+            "beginner": {
+              "body_markdown": "### What is Supervised Machine Learning?\n\nIn supervised learning, the model is trained on **labeled input-output pairs** $(x, y)$.\n- **Regression**: Predicting a continuous numeric value (e.g., house prices, temperature).\n- **Classification**: Predicting discrete categories (e.g., Spam vs Not Spam, Dog vs Cat).\n- **Linear Regression Equation**: $\\hat{y} = w x + b$, where $w$ is the weight (slope) and $b$ is the bias (y-intercept).",
+              "visual_spec": {
+                "type": "GraphPlotter",
+                "props": {
+                  "a": 0,
+                  "b": 1.5,
+                  "c": 2,
+                  "interactive": true,
+                  "caption": "Linear regression line fitting data points minimizing Mean Squared Error (MSE)."
+                }
+              }
+            },
+            "intermediate": {
+              "body_markdown": "### Cost Functions & Gradient Descent Optimization\n\n- **Mean Squared Error (MSE)**: $J(w, b) = \\frac{1}{2m} \\sum_{i=1}^m (\\hat{y}^{(i)} - y^{(i)})^2$.\n- **Gradient Descent Update**: $w := w - \\alpha \\frac{\\partial J}{\\partial w}$, where $\\alpha$ is the learning rate.",
+              "visual_spec": {
+                "type": "FlowChart",
+                "props": {
+                  "nodes": [
+                    {"id": "pred", "label": "Model Prediction y_hat", "color": "#6366F1"},
+                    {"id": "loss", "label": "Compute Loss (y_hat - y)²", "color": "#EF4444"},
+                    {"id": "grad", "label": "Backprop / Gradient ∇J", "color": "#F59E0B"},
+                    {"id": "update", "label": "Update Weights: w := w - α·∇J", "color": "#10B981"}
+                  ],
+                  "edges": [
+                    {"from": "pred", "to": "loss"},
+                    {"from": "loss", "to": "grad"},
+                    {"from": "grad", "to": "update"},
+                    {"from": "update", "to": "pred"}
+                  ],
+                  "caption": "Iterative Gradient Descent optimization loop."
+                }
+              }
+            },
+            "advanced": {
+              "body_markdown": "### Regularization and the Bias-Variance Tradeoff\n\n- **L2 Ridge Regularization**: Adds penalty $\\lambda \\sum w_j^2$ to shrink weights and reduce overfitting.\n- **L1 Lasso Regularization**: Adds penalty $\\lambda \\sum |w_j|$ producing sparse feature selection.",
+              "visual_spec": {
+                "type": "FlowChart",
+                "props": {
+                  "nodes": [
+                    {"id": "bias", "label": "Underfitting (High Bias)", "color": "#3B82F6"},
+                    {"id": "sweet", "label": "Optimal Model Capacity", "color": "#10B981"},
+                    {"id": "var", "label": "Overfitting (High Variance)", "color": "#EF4444"}
+                  ],
+                  "edges": [
+                    {"from": "bias", "to": "sweet"},
+                    {"from": "sweet", "to": "var"}
+                  ],
+                  "caption": "Bias-Variance tradeoff across model capacity."
+                }
+              }
+            }
+          },
+          "flashcards": [
+            {"front": "What distinguishes Supervised from Unsupervised learning?", "back": "Supervised learning uses labeled training data with known target outputs; unsupervised learning finds patterns in unlabeled data.", "concept_tag": "ml_supervised_regression"},
+            {"front": "What is the standard loss function used in Linear Regression?", "back": "Mean Squared Error (MSE).", "concept_tag": "ml_supervised_regression"},
+            {"front": "What is the role of the learning rate α in gradient descent?", "back": "Controls the step size taken towards the minimum of the loss function.", "concept_tag": "ml_supervised_regression"}
+          ],
+          "questions": [
+            {
+              "stem": "Which machine learning task involves predicting whether an email is 'Spam' or 'Ham'?",
+              "options_json": ["Binary Classification", "Continuous Regression", "Clustering", "Dimensionality Reduction"],
+              "correct_index": 0,
+              "difficulty": 1,
+              "expected_time_seconds": 25,
+              "explanation": "Classifying an input into one of two discrete classes is Binary Classification.",
+              "misconception_hints_json": {}
+            },
+            {
+              "stem": "If learning rate α in gradient descent is chosen excessively large, what occurs?",
+              "options_json": [
+                "The optimization may overshoot the minimum and diverge",
+                "Training converges instantly in 1 step",
+                "Model parameters freeze completely",
+                "Weights will strictly become zero"
+              ],
+              "correct_index": 0,
+              "difficulty": 2,
+              "expected_time_seconds": 30,
+              "explanation": "An oversized learning rate causes oscillation across steep loss valleys and catastrophic divergence.",
+              "misconception_hints_json": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "operating_systems",
+      "title": "Operating Systems & Concurrency",
+      "keywords": ["operating systems", "os", "process", "thread", "cpu scheduling", "deadlock", "virtual memory", "paging"],
+      "description": "Core concepts of modern Operating Systems: Processes, Threads, CPU Scheduling, Synchronization, Deadlocks, and Paging.",
+      "subtopics": [
+        {
+          "title": "Processes, Threads, and Scheduling",
+          "concept_tag": "os_process_threads",
+          "order": 1,
+          "explanations": {
+            "beginner": {
+              "body_markdown": "### Process vs Thread\n\n- **Process**: An executing program with its own isolated address space, PCB, and file descriptors.\n- **Thread**: A lightweight unit of execution within a process that shares the heap, code, and global variables with sibling threads.",
+              "visual_spec": {
+                "type": "ProcessTimeline",
+                "props": {
+                  "steps": [
+                    {"title": "New", "desc": "Process is created and allocated PCB."},
+                    {"title": "Ready", "desc": "Queued in RAM awaiting CPU allocation by scheduler."},
+                    {"title": "Running", "desc": "Executing instructions on CPU core."},
+                    {"title": "Waiting/Terminated", "desc": "I/O wait or process completion."}
+                  ],
+                  "caption": "Standard 5-state process lifecycle."
+                }
+              }
+            },
+            "intermediate": {
+              "body_markdown": "### CPU Scheduling Algorithms\n\n- **Round Robin (RR)**: Preemptive scheduling with a fixed time quantum $q$.\n- **Shortest Job First (SJF)**: Optimal average waiting time but susceptible to starvation.",
+              "visual_spec": {
+                "type": "ProcessTimeline",
+                "props": {
+                  "steps": [
+                    {"title": "Time Quantum Q=4ms", "desc": "Process P1 executes for 4ms."},
+                    {"title": "Context Switch", "desc": "CPU registers saved; P2 restored."},
+                    {"title": "Process P2", "desc": "Process P2 executes for 4ms."}
+                  ],
+                  "caption": "Round Robin CPU preemption timeline."
+                }
+              }
+            },
+            "advanced": {
+              "body_markdown": "### The Four Coffman Deadlock Conditions\n\nDeadlock can only occur if all 4 conditions hold simultaneously:\n1. **Mutual Exclusion**: Non-shareable resource access.\n2. **Hold and Wait**: Process holding resources while requesting more.\n3. **No Preemption**: Resources cannot be forcibly taken.\n4. **Circular Wait**: Closed loop chain of resource requests.",
+              "visual_spec": {
+                "type": "FlowChart",
+                "props": {
+                  "nodes": [
+                    {"id": "c1", "label": "Mutual Exclusion", "color": "#EF4444"},
+                    {"id": "c2", "label": "Hold & Wait", "color": "#EF4444"},
+                    {"id": "c3", "label": "No Preemption", "color": "#EF4444"},
+                    {"id": "c4", "label": "Circular Wait", "color": "#EF4444"},
+                    {"id": "dl", "label": "DEADLOCK", "color": "#8B5CF6"}
+                  ],
+                  "edges": [
+                    {"from": "c1", "to": "dl"},
+                    {"from": "c2", "to": "dl"},
+                    {"from": "c3", "to": "dl"},
+                    {"from": "c4", "to": "dl"}
+                  ],
+                  "caption": "The 4 Coffman conditions for system deadlock."
+                }
+              }
+            }
+          },
+          "flashcards": [
+            {"front": "What memory is shared among threads belonging to the same process?", "back": "Code segment, Data segment, and Heap (each thread has its own Stack and Registers).", "concept_tag": "os_process_threads"},
+            {"front": "Name the 4 Coffman conditions required for deadlock.", "back": "Mutual Exclusion, Hold & Wait, No Preemption, and Circular Wait.", "concept_tag": "os_process_threads"}
+          ],
+          "questions": [
+            {
+              "stem": "Which component of a process is UNIQUE to each thread in a multi-threaded process?",
+              "options_json": ["Execution Stack and Registers", "Heap Memory", "Global Variables", "Open File Descriptors"],
+              "correct_index": 0,
+              "difficulty": 2,
+              "expected_time_seconds": 30,
+              "explanation": "Each thread maintains its own call stack and CPU register state to execute independently.",
+              "misconception_hints_json": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "digital_electronics",
+      "title": "Digital Electronics & Logic Gates",
+      "keywords": ["digital electronics", "logic gates", "boolean algebra", "and", "or", "xor", "nand", "flip flop"],
+      "description": "Logic gates (AND, OR, NOT, NAND, NOR, XOR), truth tables, Boolean algebra simplification, and combinational logic circuits.",
+      "subtopics": [
+        {
+          "title": "Logic Gates and Truth Tables",
+          "concept_tag": "logic_gates_truth_tables",
+          "order": 1,
+          "explanations": {
+            "beginner": {
+              "body_markdown": "### Fundamental Logic Gates\n\n- **AND**: Output 1 only if BOTH inputs are 1 ($Y = A \\cdot B$).\n- **OR**: Output 1 if AT LEAST ONE input is 1 ($Y = A + B$).\n- **NOT**: Inverts the input ($Y = \\bar{A}$).\n- **XOR**: Output 1 if inputs are DIFFERENT ($Y = A \\oplus B$).\n- **Universal Gates**: **NAND** and **NOR** can create any digital logic function!",
+              "visual_spec": {
+                "type": "FlowChart",
+                "props": {
+                  "nodes": [
+                    {"id": "a", "label": "Input A (0 or 1)", "color": "#6366F1"},
+                    {"id": "b", "label": "Input B (0 or 1)", "color": "#6366F1"},
+                    {"id": "gate", "label": "XOR Gate (A ⊕ B)", "color": "#F59E0B"},
+                    {"id": "out", "label": "Output: 1 if A ≠ B", "color": "#10B981"}
+                  ],
+                  "edges": [
+                    {"from": "a", "to": "gate"},
+                    {"from": "b", "to": "gate"},
+                    {"from": "gate", "to": "out"}
+                  ],
+                  "caption": "Digital XOR parity calculation."
+                }
+              }
+            },
+            "intermediate": {
+              "body_markdown": "### De Morgan's Laws\n\n1. $\\overline{A \\cdot B} = \\bar{A} + \\bar{B}$\n2. $\\overline{A + B} = \\bar{A} \\cdot \\bar{B}$",
+              "visual_spec": {
+                "type": "FlowChart",
+                "props": {
+                  "nodes": [
+                    {"id": "dm1", "label": "NAND Gate ~(A · B)", "color": "#EF4444"},
+                    {"id": "dm2", "label": "Inverted OR (~A + ~B)", "color": "#10B981"}
+                  ],
+                  "edges": [{"from": "dm1", "to": "dm2"}],
+                  "caption": "De Morgan duality equivalence."
+                }
+              }
+            },
+            "advanced": {
+              "body_markdown": "### Karnaugh Maps (K-Maps) and Propagation Delay\n\nK-maps utilize Gray code ordering to group adjacent 1s for minimal Sum of Products (SOP) boolean minimization.",
+              "visual_spec": {
+                "type": "FlowChart",
+                "props": {
+                  "nodes": [
+                    {"id": "kmap", "label": "Gray-Coded K-Map Grid", "color": "#8B5CF6"},
+                    {"id": "sop", "label": "Minimal Prime Implicants SOP", "color": "#10B981"}
+                  ],
+                  "edges": [{"from": "kmap", "to": "sop"}],
+                  "caption": "Boolean optimization using K-Maps."
+                }
+              }
+            }
+          },
+          "flashcards": [
+            {"front": "Why are NAND and NOR called Universal Gates?", "back": "Because any Boolean function (AND, OR, NOT, XOR, etc.) can be constructed using exclusively NAND or NOR gates.", "concept_tag": "logic_gates_truth_tables"},
+            {"front": "What is the output of an XOR gate when both inputs are 1?", "back": "0 (XOR yields 1 only when inputs differ).", "concept_tag": "logic_gates_truth_tables"}
+          ],
+          "questions": [
+            {
+              "stem": "Which logic gate outputs 0 only when both inputs are 0, and 1 in all other cases?",
+              "options_json": ["OR Gate", "AND Gate", "NAND Gate", "XOR Gate"],
+              "correct_index": 0,
+              "difficulty": 1,
+              "expected_time_seconds": 25,
+              "explanation": "An OR gate outputs 0 only when both A=0 and B=0.",
+              "misconception_hints_json": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "thermodynamics",
+      "title": "Thermodynamics & Heat Engines",
+      "keywords": ["thermodynamics", "heat", "carnot", "entropy", "enthalpy", "first law", "second law", "efficiency"],
+      "description": "Laws of Thermodynamics: Zeroth, First (Energy Conservation), Second (Entropy & Carnot cycle), and Third laws.",
+      "subtopics": [
+        {
+          "title": "Laws of Thermodynamics and Carnot Efficiency",
+          "concept_tag": "thermo_laws_carnot",
+          "order": 1,
+          "explanations": {
+            "beginner": {
+              "body_markdown": "### The Fundamental Laws of Thermodynamics\n\n- **1st Law**: Energy cannot be created or destroyed: $\\Delta U = Q - W$.\n- **2nd Law**: Total entropy of an isolated system always increases; heat cannot spontaneously flow from colder to hotter bodies.\n- **Carnot Efficiency**: Maximum theoretical efficiency of any heat engine operating between hot reservoir $T_H$ and cold reservoir $T_C$:\n$$\\eta_{Carnot} = 1 - \\frac{T_C}{T_H}$$ (temperatures in Kelvin).",
+              "visual_spec": {
+                "type": "FlowChart",
+                "props": {
+                  "nodes": [
+                    {"id": "th", "label": "Hot Reservoir (T_H)", "color": "#EF4444"},
+                    {"id": "work", "label": "Useful Mechanical Work W", "color": "#10B981"},
+                    {"id": "tc", "label": "Cold Sink (T_C)", "color": "#3B82F6"}
+                  ],
+                  "edges": [
+                    {"from": "th", "to": "work"},
+                    {"from": "th", "to": "tc"}
+                  ],
+                  "caption": "Carnot Heat Engine energy flow diagram."
+                }
+              }
+            },
+            "intermediate": {
+              "body_markdown": "### Thermodynamic State Functions: Enthalpy and Gibbs Free Energy\n\n- **Enthalpy**: $H = U + P V$\n- **Gibbs Free Energy**: $G = H - T S$. Spontaneous processes at constant $T, P$ require $\\Delta G < 0$.",
+              "visual_spec": {
+                "type": "FlowChart",
+                "props": {
+                  "nodes": [
+                    {"id": "dg", "label": "ΔG = ΔH - T·ΔS", "color": "#6366F1"},
+                    {"id": "spon", "label": "If ΔG < 0: Spontaneous Process", "color": "#10B981"}
+                  ],
+                  "edges": [{"from": "dg", "to": "spon"}],
+                  "caption": "Thermodynamic spontaneity criteria."
+                }
+              }
+            },
+            "advanced": {
+              "body_markdown": "### Statistical Definition of Entropy (Boltzmann Formula)\n\n$$S = k_B \\ln \\Omega$$\nwhere $\\Omega$ is the number of accessible microstates corresponding to the macrostate.",
+              "visual_spec": {
+                "type": "FlowChart",
+                "props": {
+                  "nodes": [
+                    {"id": "micro", "label": "Accessible Microstates (Ω)", "color": "#8B5CF6"},
+                    {"id": "ent", "label": "Entropy S = k_B · ln(Ω)", "color": "#10B981"}
+                  ],
+                  "edges": [{"from": "micro", "to": "ent"}],
+                  "caption": "Microscopic statistical thermodynamic definition of entropy."
+                }
+              }
+            }
+          },
+          "flashcards": [
+            {"front": "State the formula for Carnot Engine Efficiency.", "back": "η = 1 - (T_cold / T_hot), where temperatures must be in Kelvin.", "concept_tag": "thermo_laws_carnot"},
+            {"front": "State the First Law of Thermodynamics.", "back": "ΔU = Q - W (Change in internal energy equals heat added minus work done by system).", "concept_tag": "thermo_laws_carnot"}
+          ],
+          "questions": [
+            {
+              "stem": "A Carnot engine operates between a hot reservoir at 600 K and a cold sink at 300 K. What is its maximum theoretical efficiency?",
+              "options_json": ["50%", "100%", "25%", "75%"],
+              "correct_index": 0,
+              "difficulty": 2,
+              "expected_time_seconds": 30,
+              "explanation": "η = 1 - (T_c / T_h) = 1 - (300 / 600) = 1 - 0.5 = 0.5 = 50%.",
+              "misconception_hints_json": {}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

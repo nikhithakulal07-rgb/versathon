@@ -1,0 +1,277 @@
+{
+  "chapter_title": "Algebraic Equations",
+  "subject_code": "C10-MATH",
+  "topic": {
+    "title": "Quadratic Equations and Roots",
+    "description": "Standard form of quadratic equations, solution by factorization, completing the square, quadratic formula, and discriminant analysis.",
+    "order": 1,
+    "subtopics": [
+      {
+        "title": "Standard Form and Nature of Roots",
+        "concept_tag": "quad_standard_roots",
+        "order": 1,
+        "prerequisite_tag": null,
+        "explanations": {
+          "beginner": {
+            "body_markdown": "### What is a Quadratic Equation?\n\nA **Quadratic Equation** in variable $x$ is an equation of degree 2.\n- **Standard Form**: $ax^2 + bx + c = 0$ (where $a, b, c$ are real numbers and $a \\neq 0$).\n- **Roots/Solutions**: The values of $x$ that satisfy the equation.\n- A quadratic equation has **at most two roots**.\n- **Discriminant ($D$)**: $D = b^2 - 4ac$.\n  - If $D > 0$: Two distinct real roots.\n  - If $D = 0$: Two equal real roots.\n  - If $D < 0$: No real roots (imaginary/complex roots).",
+            "visual_spec": {
+              "type": "GraphPlotter",
+              "props": {
+                "a": 1,
+                "b": -5,
+                "c": 6,
+                "interactive": true,
+                "showRoots": true,
+                "caption": "Graph of y = x² - 5x + 6 showing x-intercepts (roots) at x = 2 and x = 3."
+              }
+            }
+          },
+          "intermediate": {
+            "body_markdown": "### Parabola Geometry and Discriminant\n\nThe graph $y = ax^2 + bx + c$ is a parabola:\n- Vertex: $\\left(-\\frac{b}{2a}, -\\frac{D}{4a}\\right)$.\n- Axis of symmetry: $x = -\\frac{b}{2a}$.\n- When $D > 0$, the parabola intersects the x-axis at 2 points.\n- When $D = 0$, it is tangent to the x-axis at 1 point.\n- When $D < 0$, the parabola never touches the x-axis.",
+            "visual_spec": {
+              "type": "GraphPlotter",
+              "props": {
+                "a": 1,
+                "b": -4,
+                "c": 4,
+                "interactive": true,
+                "showRoots": true,
+                "caption": "Parabola tangent to x-axis when Discriminant D = 0 (repeated root x = 2)."
+              }
+            }
+          },
+          "advanced": {
+            "body_markdown": "### Vieta's Formulas and Higher Degree Polynomial Relations\n\nFor $ax^2 + bx + c = 0$ with roots $\\alpha, \\beta$:\n- Sum of roots: $\\alpha + \\beta = -\\frac{b}{a}$\n- Product of roots: $\\alpha \\beta = \\frac{c}{a}$\n- Transformation of equations: if roots are $\\alpha^2, \\beta^2$, use $y = x^2$ substitution.",
+            "visual_spec": {
+              "type": "GraphPlotter",
+              "props": {
+                "a": 1,
+                "b": 2,
+                "c": 5,
+                "interactive": true,
+                "showRoots": true,
+                "caption": "When D < 0, parabola does not intersect x-axis (complex conjugate roots)."
+              }
+            }
+          }
+        },
+        "flashcards": [
+          {"front": "What is the standard form of a quadratic equation?", "back": "ax² + bx + c = 0, where a, b, c are real numbers and a ≠ 0.", "concept_tag": "quad_standard_roots"},
+          {"front": "What is the formula for the Discriminant (D)?", "back": "D = b² - 4ac.", "concept_tag": "quad_standard_roots"},
+          {"front": "What is the nature of roots when D > 0?", "back": "Two distinct real roots.", "concept_tag": "quad_standard_roots"},
+          {"front": "What is the nature of roots when D = 0?", "back": "Two equal (repeated) real roots: x = -b / (2a).", "concept_tag": "quad_standard_roots"},
+          {"front": "What are Vieta's formulas for sum and product of roots?", "back": "Sum = -b/a, Product = c/a.", "concept_tag": "quad_standard_roots"},
+          {"front": "What does D < 0 imply about the roots?", "back": "No real roots exist (the roots are complex/imaginary).", "concept_tag": "quad_standard_roots"}
+        ],
+        "questions": [
+          {
+            "stem": "Which of the following is the discriminant of the quadratic equation 2x² - 4x + 3 = 0?",
+            "options_json": ["-8", "8", "-40", "40"],
+            "correct_index": 0,
+            "difficulty": 1,
+            "expected_time_seconds": 30,
+            "explanation": "D = b² - 4ac = (-4)² - 4(2)(3) = 16 - 24 = -8.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "What is the nature of roots for the equation 3x² - 6x + 3 = 0?",
+            "options_json": ["Two equal real roots", "Two distinct real roots", "No real roots", "Three real roots"],
+            "correct_index": 0,
+            "difficulty": 1,
+            "expected_time_seconds": 25,
+            "explanation": "D = (-6)² - 4(3)(3) = 36 - 36 = 0. Hence, two equal real roots.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "If α and β are the roots of 2x² + 7x + 5 = 0, what is the value of α + β?",
+            "options_json": ["-7/2", "7/2", "5/2", "-5/2"],
+            "correct_index": 0,
+            "difficulty": 2,
+            "expected_time_seconds": 30,
+            "explanation": "Sum of roots α + β = -b/a = -7/2.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "For what value of k does the equation kx² - 6x + 1 = 0 have real and equal roots?",
+            "options_json": ["9", "36", "6", "3"],
+            "correct_index": 0,
+            "difficulty": 3,
+            "expected_time_seconds": 40,
+            "explanation": "For equal roots, D = 0 => (-6)² - 4(k)(1) = 0 => 36 - 4k = 0 => k = 9.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "If one root of the quadratic equation 2x² + kx - 6 = 0 is 2, what is the value of k and the other root?",
+            "options_json": ["k = -1 and other root = -3/2", "k = 1 and other root = 3/2", "k = -2 and other root = 3", "k = 4 and other root = -1"],
+            "correct_index": 0,
+            "difficulty": 3,
+            "expected_time_seconds": 45,
+            "explanation": "Substitute x = 2: 2(2)² + k(2) - 6 = 0 => 8 + 2k - 6 = 0 => 2k = -2 => k = -1. Product of roots = 2 × β = c/a = -6/2 = -3 => β = -3/2.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "If the roots of (a - b)x² + (b - c)x + (c - a) = 0 are equal, which of the following is true?",
+            "options_json": ["2b = a + c (b is the arithmetic mean of a and c)", "2a = b + c", "2c = a + b", "a + b + c = 0"],
+            "correct_index": 0,
+            "difficulty": 4,
+            "expected_time_seconds": 60,
+            "explanation": "Note that x = 1 is a root since (a-b) + (b-c) + (c-a) = 0. Since roots are equal, both roots are 1. Product of roots = 1 × 1 = (c - a) / (a - b) => a - b = c - a => 2a = ... wait: a - b = c - a => 2b = a + c.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "Find the range of values of m for which the quadratic equation (m - 1)x² + 2(m - 1)x + 1 = 0 has distinct real roots.",
+            "options_json": ["1 < m < 2", "m > 2 or m < 1", "m > 2", "m < 1"],
+            "correct_index": 0,
+            "difficulty": 5,
+            "expected_time_seconds": 65,
+            "explanation": "For quadratic, m ≠ 1. D = [2(m-1)]² - 4(m-1)(1) = 4(m-1)[(m-1) - 1] = 4(m-1)(m-2) > 0. Since m ≠ 1, if m > 2 or m < 1 => (m-1)(m-2) > 0. (Option: m > 2 or m < 1).",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "If α and β are roots of x² - px + q = 0, what is the value of 1/α² + 1/β²?",
+            "options_json": ["(p² - 2q) / q²", "(p² + 2q) / q²", "(p² - 4q) / q²", "p² / q²"],
+            "correct_index": 0,
+            "difficulty": 4,
+            "expected_time_seconds": 50,
+            "explanation": "1/α² + 1/β² = (α² + β²) / (αβ)² = [(α+β)² - 2αβ] / (αβ)² = (p² - 2q) / q².",
+            "misconception_hints_json": {}
+          }
+        ]
+      },
+      {
+        "title": "Solving by Quadratic Formula and Factorization",
+        "concept_tag": "quad_formula_factor",
+        "order": 2,
+        "prerequisite_tag": "quad_standard_roots",
+        "explanations": {
+          "beginner": {
+            "body_markdown": "### Methods to Solve Quadratic Equations\n\n1. **Factorization (Splitting the middle term)**: Express $ax^2 + bx + c$ as $(px + q)(rx + s) = 0$.\n2. **The Quadratic Formula (Shreedharacharya's Rule)**:\n$$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$\nThis formula works for ANY quadratic equation!",
+            "visual_spec": {
+              "type": "StepThroughDiagram",
+              "props": {
+                "steps": [
+                  {"title": "Identify a, b, c", "content": "From ax² + bx + c = 0, extract coefficients a, b, and c."},
+                  {"title": "Compute Discriminant", "content": "Calculate D = b² - 4ac."},
+                  {"title": "Apply Formula", "content": "x = (-b ± √D) / (2a)."},
+                  {"title": "Obtain Two Roots", "content": "x₁ = (-b + √D) / (2a) and x₂ = (-b - √D) / (2a)."}
+                ],
+                "caption": "Algorithm for solving quadratic equations via Shreedharacharya's formula."
+              }
+            }
+          },
+          "intermediate": {
+            "body_markdown": "### Derivation of Quadratic Formula by Completing the Square\n\nStarting from $ax^2 + bx + c = 0$:\n1. Divide by $a$: $x^2 + \\frac{b}{a}x = -\\frac{c}{a}$\n2. Add $\\left(\\frac{b}{2a}\\right)^2$ to both sides: $\\left(x + \\frac{b}{2a}\\right)^2 = \\frac{b^2 - 4ac}{4a^2}$\n3. Take square root: $x + \\frac{b}{2a} = \\pm \\frac{\\sqrt{b^2 - 4ac}}{2a} \\implies x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$.",
+            "visual_spec": {
+              "type": "StepThroughDiagram",
+              "props": {
+                "steps": [
+                  {"title": "Divide by a", "content": "x² + (b/a)x = -c/a"},
+                  {"title": "Complete Square", "content": "(x + b/(2a))² = (b² - 4ac)/(4a²)"},
+                  {"title": "Square Root", "content": "x + b/(2a) = ±√(b²-4ac)/(2a)"},
+                  {"title": "Result", "content": "x = (-b ± √(b²-4ac)) / (2a)"}
+                ],
+                "caption": "Step-by-step geometric and algebraic completion of square."
+              }
+            }
+          },
+          "advanced": {
+            "body_markdown": "### Numerical Stability in Quadratic Solvers\n\nWhen $b^2 \\gg 4ac$, standard quadratic formula suffers from **catastrophic cancellation** in floating-point arithmetic.\n- Safe numerical formula: $q = -\\frac{1}{2}\\left(b + \\text{sgn}(b)\\sqrt{b^2 - 4ac}\\right)$, then $x_1 = \\frac{q}{a}$, $x_2 = \\frac{c}{q}$.",
+            "visual_spec": {
+              "type": "StepThroughDiagram",
+              "props": {
+                "steps": [
+                  {"title": "Standard Loss of Significance", "content": "When b > 0 and b ≈ √D, -b + √D subtracts nearly equal quantities."},
+                  {"title": "Numerically Stable Formulation", "content": "q = -0.5 * (b + sgn(b) * √D)"},
+                  {"title": "Roots", "content": "x₁ = q / a, x₂ = c / q (guaranteeing precision)."}
+                ],
+                "caption": "Precision-safe floating point polynomial computation."
+              }
+            }
+          }
+        },
+        "flashcards": [
+          {"front": "State the quadratic formula.", "back": "x = (-b ± √(b² - 4ac)) / (2a).", "concept_tag": "quad_formula_factor"},
+          {"front": "What are the roots of x² - 5x + 6 = 0 by factorization?", "back": "(x - 2)(x - 3) = 0 => x = 2 and x = 3.", "concept_tag": "quad_formula_factor"},
+          {"front": "Solve x² - 9 = 0.", "back": "(x - 3)(x + 3) = 0 => x = +3 and x = -3.", "concept_tag": "quad_formula_factor"},
+          {"front": "What constant must be added to x² + 8x to complete the square?", "back": "(8/2)² = 4² = 16.", "concept_tag": "quad_formula_factor"},
+          {"front": "If D = 0, what is the single repeated root value?", "back": "x = -b / (2a).", "concept_tag": "quad_formula_factor"},
+          {"front": "Can factorization always be used with simple integers?", "back": "No, when D is not a perfect square, the quadratic formula is necessary.", "concept_tag": "quad_formula_factor"}
+        ],
+        "questions": [
+          {
+            "stem": "Solve the quadratic equation x² - 7x + 12 = 0 by factorization.",
+            "options_json": ["x = 3, 4", "x = -3, -4", "x = 2, 6", "x = -2, -6"],
+            "correct_index": 0,
+            "difficulty": 1,
+            "expected_time_seconds": 30,
+            "explanation": "x² - 7x + 12 = (x - 3)(x - 4) = 0 => x = 3 or x = 4.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "What are the solutions to 2x² - 5x + 3 = 0?",
+            "options_json": ["x = 1, 3/2", "x = -1, -3/2", "x = 2, 3", "x = 1/2, 3"],
+            "correct_index": 0,
+            "difficulty": 2,
+            "expected_time_seconds": 35,
+            "explanation": "2x² - 2x - 3x + 3 = 2x(x - 1) - 3(x - 1) = (2x - 3)(x - 1) = 0 => x = 1, 3/2.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "Solve for x using the quadratic formula: x² + 4x - 5 = 0.",
+            "options_json": ["x = 1, -5", "x = -1, 5", "x = 2, -3", "x = -2, 3"],
+            "correct_index": 0,
+            "difficulty": 2,
+            "expected_time_seconds": 35,
+            "explanation": "x = [-4 ± √(16 - 4(1)(-5))] / 2 = [-4 ± √36] / 2 = [-4 ± 6] / 2 => x = 1, -5.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "The sum of a number and its reciprocal is 10/3. What is the number?",
+            "options_json": ["3 or 1/3", "2 or 1/2", "4 or 1/4", "5 or 1/5"],
+            "correct_index": 0,
+            "difficulty": 3,
+            "expected_time_seconds": 45,
+            "explanation": "x + 1/x = 10/3 => (x² + 1)/x = 10/3 => 3x² - 10x + 3 = 0 => (3x - 1)(x - 3) = 0 => x = 3 or 1/3.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "Solve for x: √3 x² + 10x + 7√3 = 0.",
+            "options_json": ["x = -√3, -7/√3", "x = √3, 7/√3", "x = -3, -7", "x = -1, -7√3"],
+            "correct_index": 0,
+            "difficulty": 4,
+            "expected_time_seconds": 55,
+            "explanation": "Product = √3 × 7√3 = 21. Sum = 10 => 3 and 7. √3 x² + 3x + 7x + 7√3 = √3 x(x + √3) + 7(x + √3) = (√3 x + 7)(x + √3) = 0 => x = -√3, -7/√3.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "A motor boat whose speed is 18 km/h in still water takes 1 hour more to go 24 km upstream than to return downstream to the same spot. What is the speed of the stream?",
+            "options_json": ["6 km/h", "4 km/h", "5 km/h", "8 km/h"],
+            "correct_index": 0,
+            "difficulty": 4,
+            "expected_time_seconds": 65,
+            "explanation": "Let speed of stream = s. Upstream time: 24/(18 - s), Downstream time: 24/(18 + s). 24/(18-s) - 24/(18+s) = 1 => 24(2s)/(324 - s²) = 1 => 48s = 324 - s² => s² + 48s - 324 = 0 => (s + 54)(s - 6) = 0 => s = 6 km/h.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "Solve for x: (1 / (x - 1)) - (1 / (x + 5)) = 6/7, where x ≠ 1, -5.",
+            "options_json": ["x = 2, -6", "x = 3, -7", "x = 4, -8", "x = 1, -5"],
+            "correct_index": 0,
+            "difficulty": 4,
+            "expected_time_seconds": 60,
+            "explanation": "[(x + 5) - (x - 1)] / [(x - 1)(x + 5)] = 6 / (x² + 4x - 5) = 6/7 => x² + 4x - 5 = 7 => x² + 4x - 12 = 0 => (x + 6)(x - 2) = 0 => x = 2, -6.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "If the roots of equation x² + 2cx + ab = 0 are real and unequal, prove that x² - 2(a + b)x + a² + b² + 2c² = 0 has:",
+            "options_json": ["No real roots", "Two equal real roots", "Two positive real roots", "Infinite roots"],
+            "correct_index": 0,
+            "difficulty": 5,
+            "expected_time_seconds": 70,
+            "explanation": "First equation has real unequal roots => D1 = 4c² - 4ab > 0 => c² > ab. For second equation: D2 = 4(a+b)² - 4(a² + b² + 2c²) = 4[a² + b² + 2ab - a² - b² - 2c²] = 8(ab - c²). Since c² > ab, ab - c² < 0, so D2 < 0. Thus, no real roots!",
+            "misconception_hints_json": {}
+          }
+        ]
+      }
+    ]
+  }
+}

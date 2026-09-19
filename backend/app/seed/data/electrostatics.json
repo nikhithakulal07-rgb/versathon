@@ -1,0 +1,162 @@
+{
+  "chapter_title": "Electrostatics & Fields",
+  "subject_code": "C12-PHY",
+  "topic": {
+    "title": "Electric Charges, Coulomb's Law & Gauss's Law",
+    "description": "Quantization and conservation of charge, Coulomb's inverse square law, electric field intensity, electric flux, and Gauss's law applications.",
+    "order": 1,
+    "subtopics": [
+      {
+        "title": "Coulomb's Law and Electric Field",
+        "concept_tag": "coulombs_law_fields",
+        "order": 1,
+        "prerequisite_tag": null,
+        "explanations": {
+          "beginner": {
+            "body_markdown": "### Coulomb's Law of Electrostatic Force\n\nLike charges repel each other and opposite charges attract each other. Charles-Augustin de Coulomb quantified this force in 1785:\n\n> **Coulomb's Law**: The electrostatic force between two point charges is directly proportional to the product of the magnitudes of charges and inversely proportional to the square of the distance between them.\n\n$$F = \\frac{1}{4\\pi\\varepsilon_0} \\frac{|q_1 q_2|}{r^2}$$\nwhere $k = \\frac{1}{4\\pi\\varepsilon_0} \\approx 8.99 \\times 10^9\\text{ N}\\cdot\\text{m}^2/\\text{C}^2$.\n\n- **Electric Field**: The force experienced per unit positive test charge: $\\vec{E} = \\frac{\\vec{F}}{q_0} = \\frac{1}{4\\pi\\varepsilon_0}\\frac{q}{r^2}\\hat{r}$.",
+            "visual_spec": {
+              "type": "FlowChart",
+              "props": {
+                "nodes": [
+                  {"id": "q1", "label": "Point Charge q₁ (+)", "color": "#EF4444"},
+                  {"id": "dist", "label": "Distance r (Inverse Square 1/r²)", "color": "#6366F1"},
+                  {"id": "q2", "label": "Point Charge q₂ (-)", "color": "#3B82F6"},
+                  {"id": "force", "label": "Attractive Force F = k·|q₁q₂|/r²", "color": "#10B981"}
+                ],
+                "edges": [
+                  {"from": "q1", "to": "dist"},
+                  {"from": "dist", "to": "q2"},
+                  {"from": "q2", "to": "force"}
+                ],
+                "caption": "Coulomb interaction between separated point charges."
+              }
+            }
+          },
+          "intermediate": {
+            "body_markdown": "### Vector Form of Coulomb's Law & Superposition Principle\n\nForce exerted by $q_1$ on $q_2$:\n$$\\vec{F}_{21} = \\frac{1}{4\\pi\\varepsilon_0} \\frac{q_1 q_2}{|\\vec{r}_2 - \\vec{r}_1|^3} (\\vec{r}_2 - \\vec{r}_1)$$\n- **Superposition**: Net electrostatic force on any charge equals the vector sum of forces exerted by all other individual point charges.",
+            "visual_spec": {
+              "type": "FlowChart",
+              "props": {
+                "nodes": [
+                  {"id": "coulomb", "label": "Coulomb's Law", "color": "#6366F1"},
+                  {"id": "vector", "label": "Vector Sum (F_net = Σ F_i)", "color": "#8B5CF6"},
+                  {"id": "gauss", "label": "Gauss's Law (∮ E·dA = Q_enc / ε₀)", "color": "#10B981"}
+                ],
+                "edges": [
+                  {"from": "coulomb", "to": "vector"},
+                  {"from": "vector", "to": "gauss"}
+                ],
+                "caption": "From discrete Coulomb interactions to continuous Gauss's Law."
+              }
+            }
+          },
+          "advanced": {
+            "body_markdown": "### Differential Form of Gauss's Law & Maxwell's First Equation\n\n$$\\nabla \\cdot \\vec{E} = \\frac{\\rho}{\\varepsilon_0}$$\nIn terms of electrostatic potential $V$ (where $\\vec{E} = -\\nabla V$):\n$$\\nabla^2 V = -\\frac{\\rho}{\\varepsilon_0} \\quad \\text{(Poisson's Equation)}$$\nIn charge-free regions ($\\rho = 0$), this reduces to Laplace's equation $\\nabla^2 V = 0$.",
+            "visual_spec": {
+              "type": "FlowChart",
+              "props": {
+                "nodes": [
+                  {"id": "flux", "label": "Integral: ∮ E·dA = Q_enc/ε₀", "color": "#6366F1"},
+                  {"id": "div", "label": "Divergence Theorem", "color": "#F59E0B"},
+                  {"id": "maxwell", "label": "Differential: ∇·E = ρ/ε₀", "color": "#10B981"}
+                ],
+                "edges": [
+                  {"from": "flux", "to": "div"},
+                  {"from": "div", "to": "maxwell"}
+                ],
+                "caption": "Differential formulation of Electrostatics."
+              }
+            }
+          }
+        },
+        "flashcards": [
+          {"front": "State Coulomb's Law formula.", "back": "F = (1 / 4πε₀) · (|q₁ · q₂| / r²).", "concept_tag": "coulombs_law_fields"},
+          {"front": "What is the value of permittivity of free space (ε₀)?", "back": "ε₀ ≈ 8.854 × 10^-12 C²/(N·m²).", "concept_tag": "coulombs_law_fields"},
+          {"front": "What is the SI unit of Electric Field Intensity (E)?", "back": "Newton per Coulomb (N/C) or Volt per meter (V/m).", "concept_tag": "coulombs_law_fields"},
+          {"front": "State Gauss's Law in electrostatics.", "back": "The total electric flux through any closed Gaussian surface equals Q_enclosed / ε₀.", "concept_tag": "coulombs_law_fields"},
+          {"front": "What is the electric field inside a charged hollow spherical conductor?", "back": "Zero (E = 0 everywhere inside).", "concept_tag": "coulombs_law_fields"},
+          {"front": "How does the force between two charges change if placed in a medium of dielectric constant K?", "back": "The force reduces by factor K (F_med = F_vacuum / K).", "concept_tag": "coulombs_law_fields"}
+        ],
+        "questions": [
+          {
+            "stem": "Two point charges +1 μC and +4 μC are placed 30 cm apart in vacuum. At what distance from the +1 μC charge is the net electric field zero?",
+            "options_json": ["10 cm", "20 cm", "15 cm", "7.5 cm"],
+            "correct_index": 0,
+            "difficulty": 2,
+            "expected_time_seconds": 45,
+            "explanation": "Let distance from q1 = x. E1 = E2 => k(1)/x² = k(4)/(30-x)² => 1/x = 2/(30-x) => 30 - x = 2x => 3x = 30 => x = 10 cm.",
+            "misconception_hints_json": {"20 cm": "20 cm is the distance from the 4 μC charge (30 - 10 = 20 cm)."}
+          },
+          {
+            "stem": "What is the electric flux through a closed cube of side a that encloses a point charge q at its center?",
+            "options_json": ["q / ε₀", "q / (6 ε₀)", "6 q a² / ε₀", "Zero"],
+            "correct_index": 0,
+            "difficulty": 1,
+            "expected_time_seconds": 25,
+            "explanation": "According to Gauss's Law, the total flux through any closed surface enclosing charge q is Φ = q / ε₀, independent of the surface geometry.",
+            "misconception_hints_json": {"q / (6 ε₀)": "q / (6 ε₀) is the flux through ONE single face of the cube."}
+          },
+          {
+            "stem": "An infinite line of charge produces a field of 9 × 10^4 N/C at a distance of 2 cm. What is the linear charge density λ?",
+            "options_json": ["0.1 μC/m (10^-7 C/m)", "0.2 μC/m", "0.05 μC/m", "1.0 μC/m"],
+            "correct_index": 0,
+            "difficulty": 3,
+            "expected_time_seconds": 45,
+            "explanation": "E = λ / (2 π ε₀ r) = 2 k λ / r => λ = (E × r) / (2 k) = (9 × 10^4 × 0.02) / (2 × 9 × 10^9) = 1800 / (1.8 × 10^10) = 10^-7 C/m = 0.1 μC/m.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "What is the electric field just outside the surface of a charged conducting sheet with surface charge density σ?",
+            "options_json": ["σ / ε₀", "σ / (2 ε₀)", "2 σ / ε₀", "Zero"],
+            "correct_index": 0,
+            "difficulty": 3,
+            "expected_time_seconds": 35,
+            "explanation": "For a conductor, field inside is zero and field just outside is E = σ / ε₀. (For an infinite non-conducting sheet it is σ / (2 ε₀)).",
+            "misconception_hints_json": {"σ / (2 ε₀)": "That is for a thin non-conducting dielectric sheet, not a conducting surface."}
+          },
+          {
+            "stem": "An electric dipole of moment p is placed in a uniform electric field E. What is the maximum torque experienced by the dipole?",
+            "options_json": ["p × E (when θ = 90°)", "Zero (when θ = 0°)", "2 p E", "p / E"],
+            "correct_index": 0,
+            "difficulty": 2,
+            "expected_time_seconds": 30,
+            "explanation": "Torque τ = p E sin(θ). Maximum torque occurs when sin(θ) = 1 (θ = 90°), giving τ_max = p E.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "A spherical Gaussian surface encloses a dipole of dipole moment p = 2 × 10^-9 C·m. What is the net electric flux leaving the surface?",
+            "options_json": ["Zero", "2 × 10^-9 / ε₀", "4 × 10^-9 / ε₀", "Infinite"],
+            "correct_index": 0,
+            "difficulty": 1,
+            "expected_time_seconds": 25,
+            "explanation": "A dipole consists of equal and opposite charges (+q and -q). Net enclosed charge Q_enc = +q - q = 0. By Gauss's Law, net flux Φ = 0.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "If the electric potential in a region of space is given by V(x, y, z) = 6x - 8xy² - 8y + 6yz, what is the electric force on a 2 C charge placed at origin (0, 0, 0)?",
+            "options_json": ["20 N", "10 N", "12 N", "16 N"],
+            "correct_index": 0,
+            "difficulty": 4,
+            "expected_time_seconds": 55,
+            "explanation": "E_x = -∂V/∂x = -(6 - 8y²) = -6 at origin. E_y = -∂V/∂y = -(-16xy - 8 + 6z) = +8 at origin. E_z = -∂V/∂z = -6y = 0 at origin. Net E = √( (-6)² + 8² + 0² ) = 10 N/C. Force F = q E = 2 C × 10 N/C = 20 N.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "Which of the following conditions ensures electrostatic equilibrium inside any arbitrarily shaped isolated conductor?",
+            "options_json": [
+              "Electric field is zero everywhere inside, excess charge resides entirely on the outer surface, and potential is constant throughout",
+              "Current flows continuously along surface loops",
+              "Electric field lines terminate inside the conductor mass",
+              "Potential drops linearly to zero at the geometric center"
+            ],
+            "correct_index": 0,
+            "difficulty": 4,
+            "expected_time_seconds": 45,
+            "explanation": "Free electrons redistribute in picoseconds until internal E = 0. Hence potential is uniform and all static charge resides strictly on the outer boundary.",
+            "misconception_hints_json": {}
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: learnquest-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_ENV=development
+      - DATABASE_URL=sqlite:///./learnquest.db
+      - SECRET_KEY=ephemeral-dev-secret-key-32-chars-min
+      - FRONTEND_ORIGIN=http://localhost:5173
+      - COOKIE_SECURE=false
+      - AI_PROVIDER=gemini
+      - AI_API_KEY=${AI_API_KEY:-}
+      - AI_MODEL=gemini-1.5-flash
+      - DEMO_MODE=auto
+      - SHOW_DEMO_BADGE=true
+    volumes:
+      - ./backend/learnquest.db:/app/learnquest.db
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: learnquest-frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - backend
+    restart: unless-stopped

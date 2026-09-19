@@ -1,0 +1,139 @@
+{
+  "cosmetics": [
+    {
+      "code": "frame_bronze",
+      "name": "Bronze Cadet Frame",
+      "kind": "avatar_frame",
+      "cost": 0,
+      "preview_svg": "<circle cx='24' cy='24' r='20' stroke='#cd7f32' stroke-width='3' fill='none'/>",
+      "description": "Awarded to all newly initiated cadets entering Skyforge Academy."
+    },
+    {
+      "code": "frame_aurora",
+      "name": "Aurora Prism Ring",
+      "kind": "avatar_frame",
+      "cost": 150,
+      "preview_svg": "<circle cx='24' cy='24' r='20' stroke='url(#aurora-grad)' stroke-width='4' fill='none'/>",
+      "description": "A shimmering energy ring glowing with atmospheric aurora light."
+    },
+    {
+      "code": "frame_celestial_gold",
+      "name": "Celestial Sunforge Ring",
+      "kind": "avatar_frame",
+      "cost": 300,
+      "preview_svg": "<circle cx='24' cy='24' r='20' stroke='#F59E0B' stroke-width='4' fill='none' filter='drop-shadow(0 0 6px #F59E0B)'/>",
+      "description": "Forged in the heart of the orbital solar core for top scholars."
+    },
+    {
+      "code": "title_quantum_pilot",
+      "name": "Quantum Pilot",
+      "kind": "title",
+      "cost": 100,
+      "preview_svg": null,
+      "description": "Display title: 'Quantum Pilot'"
+    },
+    {
+      "code": "title_circuit_master",
+      "name": "Arch-Electromancer",
+      "kind": "title",
+      "cost": 200,
+      "preview_svg": null,
+      "description": "Display title: 'Arch-Electromancer'"
+    },
+    {
+      "code": "theme_skyforge_dark",
+      "name": "Deep Space Void Theme",
+      "kind": "theme",
+      "cost": 250,
+      "preview_svg": null,
+      "description": "Unlock the high-contrast cosmic deep space interface scheme."
+    },
+    {
+      "code": "companion_sparky",
+      "name": "Sparky the Flux Sprite",
+      "kind": "companion",
+      "cost": 350,
+      "preview_svg": "<circle cx='24' cy='24' r='14' fill='#38BDF8' filter='blur(2px)'/>",
+      "description": "A playful electric spark that floats around your learning missions."
+    }
+  ],
+  "missions": [
+    {
+      "code": "mission_electricity_101",
+      "name": "Expedition: The Volt Spire",
+      "region": "Aetheria Energy Grid",
+      "description": "Investigate the unstable power conduits at the Volt Spire and restore balance by mastering current, resistance, and Ohm's Law.",
+      "stages": [
+        {"stage": 1, "name": "SCOUT", "type": "diagnostic", "desc": "Analyze system fluctuations and take diagnostic readings of energy levels."},
+        {"stage": 2, "name": "TRAINING", "type": "concept", "desc": "Re-calibrate weak conduit nodes in specialized training zones."},
+        {"stage": 3, "name": "INTEL", "type": "flashcards", "desc": "Extract encrypted memory cores and verify voltage and current protocols."},
+        {"stage": 4, "name": "CHALLENGE", "type": "adaptive_mcq", "desc": "Engage rogue overload circuits in an adaptive knowledge duel."},
+        {"stage": 5, "name": "BOSS CHALLENGE", "type": "boss", "desc": "Face the Volt Guardian and stabilize the Spire in a high-stakes final trial!"}
+      ]
+    },
+    {
+      "code": "mission_python_logic",
+      "name": "Expedition: The Code Sanctuary",
+      "region": "Cyber Core Matrix",
+      "description": "Reconstruct corrupted procedural matrices in the Ancient Code Archive using Python Functions and LEGB scope mastery.",
+      "stages": [
+        {"stage": 1, "name": "SCOUT", "type": "diagnostic", "desc": "Scan memory leaks and identify malfunctioning function signatures."},
+        {"stage": 2, "name": "TRAINING", "type": "concept", "desc": "Review parameter binding and return value protocols."},
+        {"stage": 3, "name": "INTEL", "type": "flashcards", "desc": "Review syntax data crystals and closure mechanics."},
+        {"stage": 4, "name": "CHALLENGE", "type": "adaptive_mcq", "desc": "Debug rogue algorithmic anomalies under timed conditions."},
+        {"stage": 5, "name": "BOSS CHALLENGE", "type": "boss", "desc": "Defeat the Compiler Sentinel in the ultimate algorithmic assessment!"}
+      ]
+    },
+    {
+      "code": "mission_quad_math",
+      "name": "Expedition: Parabolic Citadel",
+      "region": "Calculus Spires",
+      "description": "Navigate the parabolic gravity wells using discriminant trajectories and quadratic factoring formulas.",
+      "stages": [
+        {"stage": 1, "name": "SCOUT", "type": "diagnostic", "desc": "Calculate initial orbital velocity and root trajectories."},
+        {"stage": 2, "name": "TRAINING", "type": "concept", "desc": "Master completing the square to adjust gravitational vertices."},
+        {"stage": 3, "name": "INTEL", "type": "flashcards", "desc": "Memorize discriminant rules and Vieta relations."},
+        {"stage": 4, "name": "CHALLENGE", "type": "adaptive_mcq", "desc": "Solve quadratic trajectory puzzles before orbital decay."},
+        {"stage": 5, "name": "BOSS CHALLENGE", "type": "boss", "desc": "Defeat the Gravity Archon in the final geometric trial!"}
+      ]
+    }
+  ],
+  "quests": [
+    {
+      "code": "daily_answer_5",
+      "title": "Sharpen Your Mind",
+      "kind": "daily",
+      "target_count": 5,
+      "xp_reward": 40,
+      "coin_reward": 25,
+      "action_type": "answer_questions"
+    },
+    {
+      "code": "daily_flashcards",
+      "title": "Memory Matrix",
+      "kind": "daily",
+      "target_count": 1,
+      "xp_reward": 35,
+      "coin_reward": 20,
+      "action_type": "complete_flashcards"
+    },
+    {
+      "code": "daily_quiz",
+      "title": "Trial by Fire",
+      "kind": "daily",
+      "target_count": 1,
+      "xp_reward": 50,
+      "coin_reward": 30,
+      "action_type": "finish_test"
+    },
+    {
+      "code": "weekly_master_subtopic",
+      "title": "Master of Knowledge",
+      "kind": "weekly",
+      "target_count": 1,
+      "xp_reward": 150,
+      "coin_reward": 100,
+      "action_type": "master_subtopic"
+    }
+  ]
+}

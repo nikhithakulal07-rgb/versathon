@@ -1,0 +1,37 @@
+{
+  "boards": [
+    {"code": "CBSE", "name": "Central Board of Secondary Education"},
+    {"code": "ICSE", "name": "Indian Certificate of Secondary Education"},
+    {"code": "STATE", "name": "State Board (Sample Syllabus)"},
+    {"code": "OTHER", "name": "International / General Curriculum"}
+  ],
+  "classes": [
+    {"grade": 5, "name": "Class 5"},
+    {"grade": 6, "name": "Class 6"},
+    {"grade": 7, "name": "Class 7"},
+    {"grade": 8, "name": "Class 8"},
+    {"grade": 9, "name": "Class 9"},
+    {"grade": 10, "name": "Class 10"},
+    {"grade": 11, "name": "Class 11"},
+    {"grade": 12, "name": "Class 12"}
+  ],
+  "streams": [
+    {"code": "SCIENCE", "name": "Science Stream"},
+    {"code": "COMMERCE", "name": "Commerce Stream"},
+    {"code": "ARTS", "name": "Arts & Humanities Stream"}
+  ],
+  "subjects": [
+    {"class_grade": 10, "board_code": "CBSE", "stream_code": null, "name": "Science (Physics, Chem, Bio)", "code": "C10-SCI", "icon": "zap", "color": "#6366F1"},
+    {"class_grade": 10, "board_code": "CBSE", "stream_code": null, "name": "Mathematics", "code": "C10-MATH", "icon": "calculator", "color": "#EC4899"},
+    {"class_grade": 10, "board_code": "CBSE", "stream_code": null, "name": "Social Science", "code": "C10-SOC", "icon": "globe", "color": "#10B981"},
+    {"class_grade": 10, "board_code": "CBSE", "stream_code": null, "name": "English Language & Lit", "code": "C10-ENG", "icon": "book-open", "color": "#F59E0B"},
+    {"class_grade": 8, "board_code": "CBSE", "stream_code": null, "name": "General Science", "code": "C8-SCI", "icon": "flask-conical", "color": "#14B8A6"},
+    {"class_grade": 8, "board_code": "CBSE", "stream_code": null, "name": "Mathematics", "code": "C8-MATH", "icon": "binary", "color": "#8B5CF6"},
+    {"class_grade": 12, "board_code": "CBSE", "stream_code": "SCIENCE", "name": "Physics", "code": "C12-PHY", "icon": "atom", "color": "#3B82F6"},
+    {"class_grade": 12, "board_code": "CBSE", "stream_code": "SCIENCE", "name": "Chemistry", "code": "C12-CHEM", "icon": "flame", "color": "#EF4444"},
+    {"class_grade": 12, "board_code": "CBSE", "stream_code": "SCIENCE", "name": "Mathematics", "code": "C12-MATH", "icon": "sigma", "color": "#8B5CF6"},
+    {"class_grade": 11, "board_code": "CBSE", "stream_code": "COMMERCE", "name": "Accountancy", "code": "C11-ACC", "icon": "receipt", "color": "#10B981"},
+    {"class_grade": 11, "board_code": "CBSE", "stream_code": "COMMERCE", "name": "Economics", "code": "C11-ECO", "icon": "trending-up", "color": "#F59E0B"},
+    {"class_grade": 11, "board_code": "CBSE", "stream_code": "COMMERCE", "name": "Business Studies", "code": "C11-BST", "icon": "briefcase", "color": "#6366F1"}
+  ]
+}

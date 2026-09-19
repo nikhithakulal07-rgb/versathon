@@ -1,0 +1,155 @@
+{
+  "chapter_title": "Cell Biology & Living Organisms",
+  "subject_code": "C8-SCI",
+  "topic": {
+    "title": "Cell — Structure and Functions",
+    "description": "Discovery of the cell, unicellular vs multicellular organisms, cell membrane, cytoplasm, nucleus, and organelles comparison.",
+    "order": 1,
+    "subtopics": [
+      {
+        "title": "Discovery and Basic Structure of Cells",
+        "concept_tag": "cell_discovery_structure",
+        "order": 1,
+        "prerequisite_tag": null,
+        "explanations": {
+          "beginner": {
+            "body_markdown": "### The Basic Building Blocks of Life\n\nJust as a brick building is made of thousands of individual bricks, all living organisms are composed of microscopic units called **Cells**!\n\n- **Discovery**: Discovered in **1665 by Robert Hooke** while examining thin slices of cork under a simple microscope.\n- **Cell Theory**: All organisms are composed of one or more cells, and new cells arise from pre-existing cells.\n- **Unicellular**: Single-celled (e.g., Amoeba, Paramecium, Bacteria).\n- **Multicellular**: Composed of trillions of specialized cells (e.g., Humans, Plants, Animals).",
+            "visual_spec": {
+              "type": "BeforeAfterCompare",
+              "props": {
+                "titleA": "Plant Cell",
+                "titleB": "Animal Cell",
+                "itemsA": ["Cell Wall present", "Chloroplasts present", "Large Central Vacuole", "Fixed rigid shape"],
+                "itemsB": ["No Cell Wall", "No Chloroplasts", "Small temporary vacuoles", "Flexible irregular shape"],
+                "caption": "Comparison of Plant and Animal Cell organelles."
+              }
+            }
+          },
+          "intermediate": {
+            "body_markdown": "### Cellular Organization and Organelles\n\n- **Plasma Membrane**: Phospholipid bilayer controlling selective permeability.\n- **Cytoplasm**: Gel-like matrix containing enzymes and metabolic pathways.\n- **Nucleus**: Contains chromatin (DNA) and nucleolus (ribosome synthesis).\n- **Mitochondria**: 'Powerhouse of the cell' producing ATP via cellular respiration.",
+            "visual_spec": {
+              "type": "BeforeAfterCompare",
+              "props": {
+                "titleA": "Prokaryote",
+                "titleB": "Eukaryote",
+                "itemsA": ["No true nucleus", "Circular DNA in nucleoid", "No membrane-bound organelles", "70S ribosomes"],
+                "itemsB": ["Membrane-bound nucleus", "Linear chromosomes with histones", "Mitochondria & ER present", "80S ribosomes"],
+                "caption": "Fundamental distinction between Prokaryotic and Eukaryotic cell organization."
+              }
+            }
+          },
+          "advanced": {
+            "body_markdown": "### Endosymbiotic Theory and Cell Ultrastructure\n\n- **Endosymbiosis**: Mitochondria and chloroplasts evolved from engulfed aerobic bacteria and photosynthetic cyanobacteria.\n- **Evidence**: Double membranes, autonomous circular DNA, 70S ribosomes, and self-replication via binary fission.",
+            "visual_spec": {
+              "type": "BeforeAfterCompare",
+              "props": {
+                "titleA": "Mitochondrion",
+                "titleB": "Chloroplast",
+                "itemsA": ["Cristae inner membrane", "Matrix with Krebs cycle enzymes", "ATP synthase complexes", "Aerobic respiration"],
+                "itemsB": ["Thylakoid granum stacks", "Stroma with Calvin cycle enzymes", "Light harvesting pigments", "Oxygenic photosynthesis"],
+                "caption": "Ultrastructural comparison of semi-autonomous bioenergetic organelles."
+              }
+            }
+          }
+        },
+        "flashcards": [
+          {"front": "Who discovered the cell and in which year?", "back": "Robert Hooke in 1665 (observed dead cork cells).", "concept_tag": "cell_discovery_structure"},
+          {"front": "What is the function of the cell membrane (plasma membrane)?", "back": "Regulates the movement of substances in and out of the cell (selectively permeable).", "concept_tag": "cell_discovery_structure"},
+          {"front": "Why are mitochondria called the 'powerhouse of the cell'?", "back": "They generate cellular energy in the form of ATP (Adenosine Triphosphate).", "concept_tag": "cell_discovery_structure"},
+          {"front": "What extra outer layer is present in plant cells but absent in animal cells?", "back": "The rigid Cell Wall, composed of cellulose.", "concept_tag": "cell_discovery_structure"},
+          {"front": "Which organelle contains genetic material (chromosomes/DNA)?", "back": "The Nucleus.", "concept_tag": "cell_discovery_structure"},
+          {"front": "What are Plastids (such as Chloroplasts) responsible for?", "back": "Trapping solar energy for photosynthesis (containing green chlorophyll).", "concept_tag": "cell_discovery_structure"}
+        ],
+        "questions": [
+          {
+            "stem": "Which scientist first observed living cells under an improved microscope?",
+            "options_json": ["Anton van Leeuwenhoek", "Robert Hooke", "Robert Brown", "Rudolf Virchow"],
+            "correct_index": 0,
+            "difficulty": 1,
+            "expected_time_seconds": 25,
+            "explanation": "Robert Hooke discovered dead cork cells in 1665; Anton van Leeuwenhoek in 1674 first observed living cells in pond water.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "Which of the following is present in plant cells but absent in animal cells?",
+            "options_json": ["Cell Wall and Chloroplasts", "Mitochondria", "Nucleus", "Ribosomes"],
+            "correct_index": 0,
+            "difficulty": 1,
+            "expected_time_seconds": 25,
+            "explanation": "Plant cells have a cellulose cell wall and plastids (chloroplasts), which animal cells lack.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "Which organelle is known as the 'suicide bag' of the cell?",
+            "options_json": ["Lysosome", "Ribosome", "Golgi Apparatus", "Vacuole"],
+            "correct_index": 0,
+            "difficulty": 2,
+            "expected_time_seconds": 25,
+            "explanation": "Lysosomes contain powerful hydrolytic digestive enzymes that can digest the cell if damaged.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "A cell is placed in a concentrated salt solution (hypertonic). What will happen to the cell?",
+            "options_json": [
+              "It will shrink due to exosmosis (water leaves the cell)",
+              "It will swell and burst due to endosmosis",
+              "It will remain unchanged",
+              "Its nucleus will divide immediately"
+            ],
+            "correct_index": 0,
+            "difficulty": 3,
+            "expected_time_seconds": 35,
+            "explanation": "In a hypertonic environment, water moves from higher water potential (inside cell) to lower water potential (outside), causing shrinkage (plasmolysis in plant cells).",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "Which cellular structure is primarily responsible for synthesizing proteins?",
+            "options_json": ["Ribosomes", "Smooth Endoplasmic Reticulum", "Centrosome", "Vacuole"],
+            "correct_index": 0,
+            "difficulty": 2,
+            "expected_time_seconds": 25,
+            "explanation": "Ribosomes (found freely or on Rough ER) are the protein factories of the cell.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "Why do mitochondria and chloroplasts contain their own circular DNA and 70S ribosomes?",
+            "options_json": [
+              "They evolved from primitive prokaryotic endosymbionts",
+              "They produce waste DNA during ATP synthesis",
+              "They were formed by budding off the nuclear envelope",
+              "They are viruses trapped inside eukaryotic cells"
+            ],
+            "correct_index": 0,
+            "difficulty": 4,
+            "expected_time_seconds": 45,
+            "explanation": "The Endosymbiotic Theory explains that mitochondria and chloroplasts originated as symbiotic prokaryotes engulfed by ancestral host cells.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "Which phase of mitosis is characterized by chromosomes aligning along the equatorial plate?",
+            "options_json": ["Metaphase", "Prophase", "Anaphase", "Telophase"],
+            "correct_index": 0,
+            "difficulty": 3,
+            "expected_time_seconds": 30,
+            "explanation": "During Metaphase, spindle fibers attach to kinetochores and align chromosomes at the metaphase plate.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "What is the primary function of the Golgi apparatus in eukaryotic cells?",
+            "options_json": [
+              "Packaging, modifying, and sorting proteins for secretion or intracellular transport",
+              "Generating ATP through oxidative phosphorylation",
+              "Synthesizing messenger RNA",
+              "Replicating genomic DNA"
+            ],
+            "correct_index": 0,
+            "difficulty": 4,
+            "expected_time_seconds": 35,
+            "explanation": "The Golgi apparatus modifies proteins and lipids synthesized in the ER and packages them into vesicles.",
+            "misconception_hints_json": {}
+          }
+        ]
+      }
+    ]
+  }
+}

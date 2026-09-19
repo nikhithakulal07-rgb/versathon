@@ -1,0 +1,701 @@
+{
+  "chapter_title": "Electricity & Magnetism",
+  "subject_code": "C10-SCI",
+  "topic": {
+    "title": "Current, Potential Difference & Ohm's Law",
+    "description": "Fundamental principles of electricity, potential difference, electrical resistance, Ohm's law, and series/parallel resistor circuits.",
+    "order": 1,
+    "subtopics": [
+      {
+        "title": "Electric Current and Circuits",
+        "concept_tag": "electric_current",
+        "order": 1,
+        "prerequisite_tag": null,
+        "explanations": {
+          "beginner": {
+            "body_markdown": "### What is Electric Current?\n\nImagine water flowing through a garden pipe. Electric current is very similar, but instead of water droplets, **tiny charged particles called electrons** flow through a metallic wire (like copper).\n\n- **Definition**: Electric current is the rate of flow of electric charge across a cross-section of a conductor.\n- **Formula**: $I = \\frac{Q}{t}$ (where $I$ is current, $Q$ is net charge in Coulombs, and $t$ is time in seconds).\n- **SI Unit**: **Ampere (A)**, named after André-Marie Ampère. $1\\text{ A} = 1\\text{ Coulomb per second}$.\n- **Direction**: By convention, current flows from **Positive (+) to Negative (-)**, which is opposite to the direction of electron flow!",
+            "visual_spec": {
+              "type": "CircuitDiagram",
+              "props": {
+                "voltage": 6,
+                "resistance": 3,
+                "showElectrons": true,
+                "interactive": true,
+                "caption": "Electrons flow from negative to positive, while conventional current flows clockwise."
+              }
+            }
+          },
+          "intermediate": {
+            "body_markdown": "### Quantitative Analysis of Electric Current\n\nElectric current $I$ measures the rate of charge transfer through any cross-section of a conductor:\n$$I = \\frac{\\Delta Q}{\\Delta t} = \\frac{n \\cdot e}{\\Delta t}$$\nwhere $n$ is the number of electrons and $e = 1.6 \\times 10^{-19}\\text{ C}$ is the elementary charge.\n\n- **Microscopic Picture**: Free electrons undergo random thermal motion at high speeds (~$10^5\\text{ m/s}$), but when an electric field is applied, they acquire a small net **drift velocity** ($v_d \\approx 10^{-4}\\text{ m/s}$).",
+            "visual_spec": {
+              "type": "CircuitDiagram",
+              "props": {
+                "voltage": 12,
+                "resistance": 4,
+                "showElectrons": true,
+                "interactive": true,
+                "caption": "Current I = V/R = 3A. Observe the rate of electron drift."
+              }
+            }
+          },
+          "advanced": {
+            "body_markdown": "### Microscopic Derivation of Current & Current Density\n\nCurrent density $\\vec{J}$ is the current per unit cross-sectional area: $\\vec{J} = n e \\vec{v}_d = \\sigma \\vec{E}$, where $\\sigma$ is the electrical conductivity and $\\vec{E}$ is the electric field vector.\n\n- **Continuity Equation**: $\\nabla \\cdot \\vec{J} + \\frac{\\partial \\rho}{\\partial t} = 0$.\n- In steady state direct current (DC), charge does not accumulate anywhere in the circuit, so $\\oint \\vec{J} \\cdot d\\vec{A} = 0$, guaranteeing Kirchhoff's Current Law.",
+            "visual_spec": {
+              "type": "CircuitDiagram",
+              "props": {
+                "voltage": 24,
+                "resistance": 6,
+                "showElectrons": true,
+                "interactive": true,
+                "caption": "Advanced view showing current continuity and drift kinetics."
+              }
+            }
+          }
+        },
+        "flashcards": [
+          {"front": "What is the SI unit of electric current?", "back": "Ampere (A), which equals 1 Coulomb per second (1 C/s).", "concept_tag": "electric_current"},
+          {"front": "What is the formula for electric current?", "back": "I = Q / t, where I = current (A), Q = charge (C), and t = time (s).", "concept_tag": "electric_current"},
+          {"front": "What is the charge on a single electron?", "back": "e = 1.6 × 10^-19 Coulombs.", "concept_tag": "electric_current"},
+          {"front": "What instrument is used to measure electric current, and how is it connected?", "back": "An Ammeter, always connected in SERIES with low internal resistance.", "concept_tag": "electric_current"},
+          {"front": "What is the direction of conventional current relative to electrons?", "back": "Conventional current flows from positive to negative, which is OPPOSITE to electron flow.", "concept_tag": "electric_current"},
+          {"front": "How many electrons constitute one Coulomb of charge?", "back": "Approximately 6.25 × 10^18 electrons (n = 1 / (1.6 × 10^-19)).", "concept_tag": "electric_current"}
+        ],
+        "questions": [
+          {
+            "stem": "A steady current of 0.5 A is drawn by a filament of an electric bulb for 10 minutes. What is the amount of electric charge that flows through the circuit?",
+            "options_json": ["300 C", "5 C", "50 C", "30 C"],
+            "correct_index": 0,
+            "difficulty": 1,
+            "expected_time_seconds": 40,
+            "explanation": "Convert time to seconds: t = 10 min = 600 s. Charge Q = I × t = 0.5 A × 600 s = 300 C.",
+            "misconception_hints_json": {"5 C": "Did you forget to convert minutes into seconds?"}
+          },
+          {
+            "stem": "Which of the following units is equivalent to 1 Ampere?",
+            "options_json": ["1 Coulomb / 1 Second", "1 Volt × 1 Second", "1 Joule / 1 Second", "1 Ohm / 1 Volt"],
+            "correct_index": 0,
+            "difficulty": 1,
+            "expected_time_seconds": 25,
+            "explanation": "Electric current is rate of charge flow: 1 A = 1 C/s.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "If 3 × 10^19 electrons flow through a wire in 2 seconds, what is the electric current? (Take e = 1.6 × 10^-19 C)",
+            "options_json": ["2.4 A", "4.8 A", "1.2 A", "0.96 A"],
+            "correct_index": 0,
+            "difficulty": 2,
+            "expected_time_seconds": 45,
+            "explanation": "Total charge Q = n × e = (3 × 10^19) × (1.6 × 10^-19 C) = 4.8 C. Current I = Q / t = 4.8 C / 2 s = 2.4 A.",
+            "misconception_hints_json": {"4.8 A": "4.8 C is total charge Q. Remember to divide by time t = 2s."}
+          },
+          {
+            "stem": "Why must an ammeter always have very low internal resistance?",
+            "options_json": [
+              "So it does not significantly alter the current in the circuit being measured",
+              "To prevent high voltage drop across the battery",
+              "Because it is connected in parallel with the load",
+              "To ensure that all heat is trapped inside the meter"
+            ],
+            "correct_index": 0,
+            "difficulty": 3,
+            "expected_time_seconds": 35,
+            "explanation": "Since an ammeter is connected in series, a low resistance ensures negligible additional resistance in the circuit, keeping current virtually unchanged.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "An electric device draws 2 A of current from a 220 V supply. How much charge enters the device in 1 hour?",
+            "options_json": ["7,200 C", "120 C", "2 C", "3,600 C"],
+            "correct_index": 0,
+            "difficulty": 3,
+            "expected_time_seconds": 45,
+            "explanation": "Time t = 1 hour = 3600 seconds. Charge Q = I × t = 2 A × 3600 s = 7,200 C.",
+            "misconception_hints_json": {"120 C": "Remember time must be in SI units (seconds: 1 hr = 3600 s)."}
+          },
+          {
+            "stem": "In a metallic conductor of cross-sectional area A with electron density n and drift velocity v_d, which expression represents the current density J?",
+            "options_json": ["J = n · e · v_d", "J = n · e · v_d · A", "J = (n · e) / v_d", "J = v_d / (n · e)"],
+            "correct_index": 0,
+            "difficulty": 4,
+            "expected_time_seconds": 45,
+            "explanation": "Current I = n · e · A · v_d. Since Current Density J = I / A, J = n · e · v_d.",
+            "misconception_hints_json": {"J = n · e · v_d · A": "That is total current I, not current density J (I/A)."}
+          },
+          {
+            "stem": "A copper wire of radius 1 mm carries a current of 3.14 A. If free electron density is 8.5 × 10^28 m^-3, what is the order of magnitude of drift speed?",
+            "options_json": ["10^-4 m/s", "10^2 m/s", "10^8 m/s", "10^-1 m/s"],
+            "correct_index": 0,
+            "difficulty": 5,
+            "expected_time_seconds": 60,
+            "explanation": "Area A = π r^2 = 3.14 × (10^-3)^2 = 3.14 × 10^-6 m^2. v_d = I / (n e A) = 3.14 / (8.5 × 10^28 × 1.6 × 10^-19 × 3.14 × 10^-6) ≈ 7.35 × 10^-5 m/s ≈ 10^-4 m/s.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "When a circuit switch is closed, an electric lamp glows almost instantaneously, despite the drift speed of electrons being less than 1 mm/s. Why?",
+            "options_json": [
+              "The electromagnetic field travels through the conductor at near the speed of light, setting all free electrons in motion almost simultaneously",
+              "Electrons move at the speed of light through empty space inside atoms",
+              "The battery shoots high-speed electrons directly into the filament instantly",
+              "Heat waves travel faster than electrons to produce light"
+            ],
+            "correct_index": 0,
+            "difficulty": 4,
+            "expected_time_seconds": 45,
+            "explanation": "The electric field propagates through the circuit at near light-speed (~3 × 10^8 m/s), creating a force on every free electron throughout the wire virtually simultaneously.",
+            "misconception_hints_json": {}
+          }
+        ]
+      },
+      {
+        "title": "Electric Potential Difference and Voltage",
+        "concept_tag": "electric_potential",
+        "order": 2,
+        "prerequisite_tag": "electric_current",
+        "explanations": {
+          "beginner": {
+            "body_markdown": "### What is Electric Potential Difference (Voltage)?\n\nFor water to flow in a pipe, there must be a **difference in water pressure** (like a high water tank). Similarly, electric charges cannot move on their own; they require an **electric pressure difference** called **Electric Potential Difference (Voltage)**.\n\n- **Definition**: Work done per unit positive charge to move it from one point to another.\n- **Formula**: $V = \\frac{W}{Q}$ (where $V$ is Potential Difference in Volts, $W$ is Work in Joules, $Q$ is Charge in Coulombs).\n- **SI Unit**: **Volt (V)**. $1\\text{ Volt} = 1\\text{ Joule per Coulomb} (1\\text{ J/C})$.\n- **Measurement**: Measured with a **Voltmeter**, which has high resistance and is connected in **Parallel**.",
+            "visual_spec": {
+              "type": "CircuitDiagram",
+              "props": {
+                "voltage": 9,
+                "resistance": 3,
+                "showVoltmeter": true,
+                "interactive": true,
+                "caption": "The battery provides 9V potential difference, pushing charges through the circuit."
+              }
+            }
+          },
+          "intermediate": {
+            "body_markdown": "### Electric Potential & Work in an Electric Field\n\nPotential difference $V_{AB} = V_B - V_A = -\\int_A^B \\vec{E} \\cdot d\\vec{l} = \\frac{W_{ext}}{q}$.\n- A battery does chemical work to maintain a constant potential difference between its terminals.\n- High internal resistance in voltmeters prevents current diversion when placed across a component in parallel.",
+            "visual_spec": {
+              "type": "CircuitDiagram",
+              "props": {
+                "voltage": 12,
+                "resistance": 6,
+                "showVoltmeter": true,
+                "interactive": true,
+                "caption": "Voltmeter connected in parallel measures potential difference."
+              }
+            }
+          },
+          "advanced": {
+            "body_markdown": "### Conservative Electric Fields and Electromotive Force (EMF)\n\nIn electrostatic conditions, $\\oint \\vec{E} \\cdot d\\vec{l} = 0$. In a closed circuit containing a source of EMF $\\mathcal{E}$:\n$$\\mathcal{E} = \\oint \\vec{f}_s \\cdot d\\vec{l} = V + I r_{int}$$\nwhere $\\vec{f}_s$ is the non-electrostatic force per unit charge and $r_{int}$ is internal resistance.",
+            "visual_spec": {
+              "type": "CircuitDiagram",
+              "props": {
+                "voltage": 15,
+                "resistance": 5,
+                "showVoltmeter": true,
+                "interactive": true,
+                "caption": "Terminal Voltage V = EMF - I*r_int."
+              }
+            }
+          }
+        },
+        "flashcards": [
+          {"front": "Define Electric Potential Difference.", "back": "The work done in moving a unit positive charge from one point to another (V = W / Q).", "concept_tag": "electric_potential"},
+          {"front": "What is the SI unit of electric potential difference?", "back": "Volt (V), which is equal to 1 Joule per Coulomb (1 J/C).", "concept_tag": "electric_potential"},
+          {"front": "What device measures voltage and how is it connected?", "back": "A Voltmeter, connected in PARALLEL with high internal resistance.", "concept_tag": "electric_potential"},
+          {"front": "If 12 J of work is done to move 2 C of charge between two points, what is the potential difference?", "back": "V = W / Q = 12 J / 2 C = 6 Volts.", "concept_tag": "electric_potential"},
+          {"front": "What maintains potential difference in an active circuit?", "back": "A chemical cell or battery through its internal redox reactions.", "concept_tag": "electric_potential"},
+          {"front": "Why is a voltmeter built with extremely high resistance?", "back": "To ensure it draws negligible current from the main circuit when connected in parallel.", "concept_tag": "electric_potential"}
+        ],
+        "questions": [
+          {
+            "stem": "How much work is done in moving a charge of 2 C across two points having a potential difference of 12 V?",
+            "options_json": ["24 J", "6 J", "14 J", "0.16 J"],
+            "correct_index": 0,
+            "difficulty": 1,
+            "expected_time_seconds": 30,
+            "explanation": "Formula: W = V × Q = 12 V × 2 C = 24 Joules.",
+            "misconception_hints_json": {"6 J": "Did you divide V by Q? Remember W = V × Q."}
+          },
+          {
+            "stem": "One Volt is mathematically equivalent to:",
+            "options_json": ["1 Joule / 1 Coulomb", "1 Coulomb / 1 Joule", "1 Newton / 1 Meter", "1 Watt / 1 Second"],
+            "correct_index": 0,
+            "difficulty": 1,
+            "expected_time_seconds": 25,
+            "explanation": "By definition, 1 V = 1 J / 1 C.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "If 60 J of energy is spent in transferring 5 C of charge through a resistor, what is the potential difference across it?",
+            "options_json": ["12 V", "300 V", "0.083 V", "55 V"],
+            "correct_index": 0,
+            "difficulty": 2,
+            "expected_time_seconds": 35,
+            "explanation": "Potential difference V = W / Q = 60 J / 5 C = 12 V.",
+            "misconception_hints_json": {"300 V": "Remember V = W / Q, not W × Q."}
+          },
+          {
+            "stem": "A student accidentally connects a voltmeter in series with a bulb in a circuit. What will happen?",
+            "options_json": [
+              "The bulb will not glow because the voltmeter's high resistance blocks almost all current",
+              "The bulb will burn out instantly due to high current",
+              "The voltmeter will explode",
+              "The bulb will glow normally without any change"
+            ],
+            "correct_index": 0,
+            "difficulty": 3,
+            "expected_time_seconds": 40,
+            "explanation": "A voltmeter has very high internal resistance. Placed in series, the total circuit resistance becomes massive, reducing current to nearly zero so the bulb cannot light up.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "An electron is accelerated through a potential difference of 100 V. What kinetic energy does it gain?",
+            "options_json": ["1.6 × 10^-17 J (100 eV)", "1.6 × 10^-19 J", "100 J", "1.6 × 10^-21 J"],
+            "correct_index": 0,
+            "difficulty": 3,
+            "expected_time_seconds": 45,
+            "explanation": "Kinetic Energy gained ΔK = q × V = (1.6 × 10^-19 C) × (100 V) = 1.6 × 10^-17 J = 100 eV.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "A battery of EMF 12 V and internal resistance 1 Ω is connected to an external 5 Ω resistor. What is the terminal voltage across the battery?",
+            "options_json": ["10 V", "12 V", "2 V", "2.4 V"],
+            "correct_index": 0,
+            "difficulty": 4,
+            "expected_time_seconds": 55,
+            "explanation": "Total resistance R_total = 5 + 1 = 6 Ω. Current I = 12 V / 6 Ω = 2 A. Terminal voltage V = EMF - I × r = 12 - (2 × 1) = 10 V (or V = I × R = 2 × 5 = 10 V).",
+            "misconception_hints_json": {"12 V": "Remember the internal resistance causes a voltage drop (lost volts = I × r = 2V)."}
+          },
+          {
+            "stem": "In a uniform electric field of strength 500 N/C, two points A and B are separated by 0.04 m along the field line. What is the potential difference between them?",
+            "options_json": ["20 V", "12,500 V", "0.00008 V", "200 V"],
+            "correct_index": 0,
+            "difficulty": 4,
+            "expected_time_seconds": 45,
+            "explanation": "For a uniform electric field, V = E × d = 500 N/C × 0.04 m = 20 V.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "Which fundamental principle guarantees that the algebraic sum of potential differences around any closed loop is zero (Kirchhoff's Loop Law)?",
+            "options_json": ["Conservation of Energy", "Conservation of Electric Charge", "Conservation of Momentum", "Coulomb's Inverse Square Law"],
+            "correct_index": 0,
+            "difficulty": 3,
+            "expected_time_seconds": 35,
+            "explanation": "Kirchhoff's Voltage/Loop Law is a direct statement of the Law of Conservation of Energy in a conservative electrostatic field.",
+            "misconception_hints_json": {"Conservation of Electric Charge": "Conservation of charge corresponds to Kirchhoff's Current Law (Junction rule)."}
+          }
+        ]
+      },
+      {
+        "title": "Ohm's Law",
+        "concept_tag": "ohms_law",
+        "order": 3,
+        "prerequisite_tag": "electric_potential",
+        "explanations": {
+          "beginner": {
+            "body_markdown": "### What is Ohm's Law?\n\n**Ohm's Law** is the most important relationship in electricity! Formulated by Georg Simon Ohm in 1827:\n\n> **Statement**: The electric current flowing through a metallic conductor is directly proportional to the potential difference across its ends, provided its temperature and physical conditions remain constant.\n\n- **Formula**: $V \\propto I \\implies V = I \\cdot R$\n  - $V$ = Voltage (Volts, V)\n  - $I$ = Current (Amperes, A)\n  - $R$ = Resistance (Ohms, $\\Omega$)\n- **The Ohm's Triangle**: $V = I \\times R$, $I = \\frac{V}{R}$, $R = \\frac{V}{I}$.\n- **V-I Graph**: For an ohmic conductor, the graph between $V$ and $I$ is a **straight line passing through the origin**, and its slope equals Resistance $R$!",
+            "visual_spec": {
+              "type": "CircuitDiagram",
+              "props": {
+                "voltage": 12,
+                "resistance": 4,
+                "interactive": true,
+                "showVIGraph": true,
+                "caption": "Adjust Voltage and Resistance sliders to observe current change in real-time according to V = I × R."
+              }
+            }
+          },
+          "intermediate": {
+            "body_markdown": "### Verification and Non-Ohmic Conductors\n\nOhm's Law is an empirical law valid for metallic conductors at constant temperature.\n- **Ohmic Conductors**: Linear V-I characteristic (e.g. Nichrome wire, Copper).\n- **Non-Ohmic Devices**: Non-linear characteristic where $R$ varies with $V$ or $I$ (e.g. Diodes, Transistors, Filament lamps whose temperature rises significantly).",
+            "visual_spec": {
+              "type": "CircuitDiagram",
+              "props": {
+                "voltage": 6,
+                "resistance": 2,
+                "interactive": true,
+                "showVIGraph": true,
+                "caption": "Linear V-I characteristic: Slope = ΔV / ΔI = R."
+              }
+            }
+          },
+          "advanced": {
+            "body_markdown": "### Vector Form of Ohm's Law and Microscopic Theory\n\nThe microscopic form of Ohm's Law is: $\\vec{J} = \\sigma \\vec{E} = \\frac{1}{\\rho} \\vec{E}$, where $\\sigma = \\frac{n e^2 \\tau}{m}$ (Drude model).\n- $\\tau$ is the mean relaxation time between electron-lattice collisions.\n- As temperature rises, lattice vibrations (phonons) increase, reducing $\\tau$ and therefore increasing resistivity $\\rho$.",
+            "visual_spec": {
+              "type": "CircuitDiagram",
+              "props": {
+                "voltage": 20,
+                "resistance": 5,
+                "interactive": true,
+                "showVIGraph": true,
+                "caption": "Microscopic view: Current density J = σ E."
+              }
+            }
+          }
+        },
+        "flashcards": [
+          {"front": "State Ohm's Law.", "back": "Current through a conductor is directly proportional to the potential difference across it, provided temperature remains constant (V = IR).", "concept_tag": "ohms_law"},
+          {"front": "What does the slope of a V-I graph represent?", "back": "The slope (ΔV / ΔI) represents the Electrical Resistance (R).", "concept_tag": "ohms_law"},
+          {"front": "If voltage across a 10 Ω resistor is 50 V, what is the current?", "back": "I = V / R = 50 V / 10 Ω = 5 Amperes.", "concept_tag": "ohms_law"},
+          {"front": "What is an Ohmic conductor?", "back": "A conductor that strictly obeys Ohm's law with a linear V-I relationship (constant resistance).", "concept_tag": "ohms_law"},
+          {"front": "Give two examples of Non-Ohmic devices.", "back": "Semiconductor diodes and incandescent filament bulbs.", "concept_tag": "ohms_law"},
+          {"front": "If voltage across a fixed resistor is halved, what happens to the current?", "back": "The current is also halved (since I is directly proportional to V).", "concept_tag": "ohms_law"}
+        ],
+        "questions": [
+          {
+            "stem": "According to Ohm's Law, if the potential difference across a resistor is 12 V and the current is 3 A, what is the resistance?",
+            "options_json": ["4 Ω", "36 Ω", "0.25 Ω", "15 Ω"],
+            "correct_index": 0,
+            "difficulty": 1,
+            "expected_time_seconds": 25,
+            "explanation": "Resistance R = V / I = 12 V / 3 A = 4 Ω.",
+            "misconception_hints_json": {"36 Ω": "Did you multiply V and I? Remember R = V / I."}
+          },
+          {
+            "stem": "If the potential difference across a fixed 5 Ω resistor is tripled, the current flowing through it will:",
+            "options_json": ["Triple", "Reduce to one-third", "Increase by 9 times", "Remain unchanged"],
+            "correct_index": 0,
+            "difficulty": 1,
+            "expected_time_seconds": 25,
+            "explanation": "Since I = V / R and R is constant, current I is directly proportional to V. Tripling V triples I.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "The V-I graph for two conductors A and B are straight lines with slopes θ_A = 60° and θ_B = 30° (with V on the y-axis and I on the x-axis). What is the ratio of their resistances R_A : R_B?",
+            "options_json": ["3 : 1", "1 : 3", "√3 : 1", "1 : √3"],
+            "correct_index": 0,
+            "difficulty": 3,
+            "expected_time_seconds": 45,
+            "explanation": "Slope = ΔV/ΔI = R = tan(θ). R_A = tan(60°) = √3. R_B = tan(30°) = 1/√3. Ratio R_A : R_B = √3 / (1/√3) = 3 : 1.",
+            "misconception_hints_json": {"√3 : 1": "Remember tan(60°) / tan(30°) = √3 / (1/√3) = 3."}
+          },
+          {
+            "stem": "Which of the following V-I characteristics represents an incandescent light bulb filament at high operating temperature?",
+            "options_json": [
+              "A curve that bends upwards away from the I-axis (resistance increases as filament heats up)",
+              "A perfectly straight line passing through the origin",
+              "A horizontal line parallel to the voltage axis",
+              "A downward sloping line indicating negative resistance"
+            ],
+            "correct_index": 0,
+            "difficulty": 3,
+            "expected_time_seconds": 40,
+            "explanation": "As current flows, the filament heats up. Metals have positive temperature coefficients, increasing resistance and making the V-I curve non-linear.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "An electric iron consumes 1 kW power when operated at 220 V. What is the current drawn and the resistance of the heating coil?",
+            "options_json": ["4.55 A and 48.4 Ω", "2.2 A and 100 Ω", "10 A and 22 Ω", "4.55 A and 220 Ω"],
+            "correct_index": 0,
+            "difficulty": 3,
+            "expected_time_seconds": 50,
+            "explanation": "Current I = P / V = 1000 W / 220 V ≈ 4.55 A. Resistance R = V / I = 220 / 4.545 ≈ 48.4 Ω (or R = V^2 / P = 220^2 / 1000 = 48.4 Ω).",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "The microscopic form of Ohm's Law states that current density J is proportional to electric field E. What is the constant of proportionality?",
+            "options_json": ["Electrical Conductivity (σ)", "Electrical Resistivity (ρ)", "Dielectric Constant (ε)", "Magnetic Permeability (μ)"],
+            "correct_index": 0,
+            "difficulty": 4,
+            "expected_time_seconds": 35,
+            "explanation": "Vector form of Ohm's law: J = σ E, where σ (sigma) is electrical conductivity.",
+            "misconception_hints_json": {"Electrical Resistivity (ρ)": "Resistivity is the inverse (ρ = 1/σ), so J = E / ρ."}
+          },
+          {
+            "stem": "A potential difference of 100 V is applied across a conductor of length 2 m. If conductivity σ = 5 × 10^7 S/m, what is the current density J inside the conductor?",
+            "options_json": ["2.5 × 10^9 A/m^2", "1.0 × 10^10 A/m^2", "5.0 × 10^7 A/m^2", "2.5 × 10^6 A/m^2"],
+            "correct_index": 0,
+            "difficulty": 5,
+            "expected_time_seconds": 60,
+            "explanation": "Electric field E = V / L = 100 V / 2 m = 50 V/m. Current density J = σ E = (5 × 10^7 S/m) × (50 V/m) = 2.5 × 10^9 A/m^2.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "Why does Ohm's Law fail for electrolytes and semiconductor diodes?",
+            "options_json": [
+              "Because the charge carrier concentration and mobility vary non-linearly with applied voltage and temperature",
+              "Electrolytes do not possess any mobile charged particles",
+              "Because voltage cannot be defined across liquids or semiconductors",
+              "Due to violations of conservation of charge"
+            ],
+            "correct_index": 0,
+            "difficulty": 4,
+            "expected_time_seconds": 45,
+            "explanation": "Semiconductors have carrier densities and barrier potentials (depletion zones) that change exponentially with voltage, producing non-linear I-V characteristics.",
+            "misconception_hints_json": {}
+          }
+        ]
+      },
+      {
+        "title": "Resistance and Resistivity",
+        "concept_tag": "resistance_factors",
+        "order": 4,
+        "prerequisite_tag": "ohms_law",
+        "explanations": {
+          "beginner": {
+            "body_markdown": "### What is Resistance and What Does it Depend On?\n\n**Resistance ($R$)** is the opposition offered by a conductor to the flow of electric current.\n\n### Factors Affecting Resistance:\n1. **Length ($l$)**: Resistance is directly proportional to length ($R \\propto l$). Doubling length doubles resistance.\n2. **Area of Cross-section ($A$)**: Resistance is inversely proportional to cross-sectional area ($R \\propto \\frac{1}{A}$). Thicker wires have less resistance!\n3. **Nature of Material**: Represented by **Resistivity ($\\rho$)**.\n4. **Temperature**: In metals, resistance increases with temperature.\n\n### The Master Formula:\n$$R = \\rho \\frac{l}{A}$$\n- SI unit of Resistance: **Ohm ($\\Omega$)**\n- SI unit of Resistivity ($\\rho$): **Ohm-meter ($\\Omega\\cdot\\text{m}$)**",
+            "visual_spec": {
+              "type": "CircuitDiagram",
+              "props": {
+                "voltage": 10,
+                "resistance": 5,
+                "showMaterialSliders": true,
+                "interactive": true,
+                "caption": "Adjust wire length (l), thickness (A), and material resistivity (ρ) to see how resistance changes."
+              }
+            }
+          },
+          "intermediate": {
+            "body_markdown": "### Resistivity vs Resistance\n\n- **Resistivity ($\\rho$)** is an intrinsic material property independent of dimensions, whereas **Resistance ($R$)** depends on length and area.\n- **Temperature Coefficient ($\\alpha$)**: $R_T = R_0 (1 + \\alpha \\Delta T)$. Metals have positive $\\alpha$, while semiconductors have negative $\\alpha$.\n- **Alloys** (like Nichrome, Manganin, Constantan) have high resistivity and very low temperature coefficients, making them ideal for heating elements.",
+            "visual_spec": {
+              "type": "CircuitDiagram",
+              "props": {
+                "voltage": 12,
+                "resistance": 6,
+                "showMaterialSliders": true,
+                "interactive": true,
+                "caption": "Resistivity is constant for a given material at fixed temperature."
+              }
+            }
+          },
+          "advanced": {
+            "body_markdown": "### Quantum and Lattice Scattering Origin of Resistivity\n\nResistivity arises from electron scattering off vibrating lattice ions (phonons) and impurities: $\\rho = \\frac{m}{n e^2 \\tau}$.\n- At low temperatures, Matthiessen's Rule states: $\\rho_{total} = \\rho_{phonon}(T) + \\rho_{impurity}$.\n- In superconductors, below a critical temperature $T_c$, electron Cooper pairs form, leading to zero electrical resistance ($\\rho = 0$).",
+            "visual_spec": {
+              "type": "CircuitDiagram",
+              "props": {
+                "voltage": 12,
+                "resistance": 4,
+                "showMaterialSliders": true,
+                "interactive": true,
+                "caption": "Electron scattering kinetics: relaxation time τ dictates resistivity."
+              }
+            }
+          }
+        },
+        "flashcards": [
+          {"front": "State the formula relating Resistance, Length, Area, and Resistivity.", "back": "R = ρ × (l / A), where ρ is resistivity, l is length, and A is cross-sectional area.", "concept_tag": "resistance_factors"},
+          {"front": "What is the SI unit of Resistivity?", "back": "Ohm-meter (Ω·m).", "concept_tag": "resistance_factors"},
+          {"front": "How does doubling the length of a wire affect its resistance?", "back": "Resistance doubles (R is directly proportional to length l).", "concept_tag": "resistance_factors"},
+          {"front": "If a wire is stretched to double its original length, by what factor does its resistance increase?", "back": "4 times! (Length doubles and area halves because volume is conserved).", "concept_tag": "resistance_factors"},
+          {"front": "Why is Nichrome used in electric toasters and heaters instead of copper?", "back": "Nichrome has high resistivity and does not oxidize (burn) easily at high temperatures.", "concept_tag": "resistance_factors"},
+          {"front": "Does the resistivity of a copper wire change if it is cut into two equal halves?", "back": "NO! Resistivity is a material property and does not depend on dimensions.", "concept_tag": "resistance_factors"}
+        ],
+        "questions": [
+          {
+            "stem": "A cylindrical wire of length l and cross-sectional area A has resistance R. What is the resistance of another wire of the same material having length 2l and area A/2?",
+            "options_json": ["4R", "2R", "R/4", "R"],
+            "correct_index": 0,
+            "difficulty": 2,
+            "expected_time_seconds": 35,
+            "explanation": "R_new = ρ × (2l) / (A/2) = 4 × (ρ l / A) = 4R.",
+            "misconception_hints_json": {"2R": "Remember the area is also halved (divided by 1/2 gives a factor of 2)."}
+          },
+          {
+            "stem": "Which of the following physical quantities depends on the dimensions (length and area) of a conductor?",
+            "options_json": ["Resistance", "Resistivity", "Specific Heat Capacity", "Density"],
+            "correct_index": 0,
+            "difficulty": 1,
+            "expected_time_seconds": 25,
+            "explanation": "Resistance depends on length and area (R = ρ l / A). Resistivity is an intrinsic property of the material.",
+            "misconception_hints_json": {"Resistivity": "Resistivity is an intensive material property independent of shape."}
+          },
+          {
+            "stem": "A 6 Ω resistance wire is doubled on itself (folded in half). What is the new resistance of the wire?",
+            "options_json": ["1.5 Ω", "3 Ω", "12 Ω", "0.75 Ω"],
+            "correct_index": 0,
+            "difficulty": 3,
+            "expected_time_seconds": 45,
+            "explanation": "Folding in half makes length l' = l/2 and area A' = 2A. R' = ρ (l/2)/(2A) = (1/4) × R = 6 / 4 = 1.5 Ω.",
+            "misconception_hints_json": {"3 Ω": "Folding in half doubles the thickness (area) as well as halving length!"}
+          },
+          {
+            "stem": "A wire of resistance R is uniformly stretched until its radius becomes r/2. What is its new resistance?",
+            "options_json": ["16 R", "4 R", "8 R", "2 R"],
+            "correct_index": 0,
+            "difficulty": 4,
+            "expected_time_seconds": 60,
+            "explanation": "Since volume V = A × l is constant, if radius is halved, area becomes A' = π(r/2)^2 = A/4. Consequently length must increase to l' = 4l. New resistance R' = ρ (4l)/(A/4) = 16 R.",
+            "misconception_hints_json": {"4 R": "Did you forget that stretching also elongates the length?"}
+          },
+          {
+            "stem": "Why do alloy materials like Manganin and Constantan make excellent standard resistance coils?",
+            "options_json": [
+              "They have high resistivity and near-zero temperature coefficient of resistance",
+              "They have lower resistivity than pure copper",
+              "They are superconducting at room temperature",
+              "Their resistance drops to zero when heated"
+            ],
+            "correct_index": 0,
+            "difficulty": 3,
+            "expected_time_seconds": 40,
+            "explanation": "Standard resistors require resistance that does not fluctuate with ambient temperature changes. Manganin has high resistivity and minimal temperature coefficient α.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "A copper wire has diameter 0.5 mm and resistivity 1.6 × 10^-8 Ω·m. What length of this wire is needed to give a resistance of 10 Ω?",
+            "options_json": ["122.7 m", "12.27 m", "1.227 m", "1227 m"],
+            "correct_index": 0,
+            "difficulty": 4,
+            "expected_time_seconds": 70,
+            "explanation": "Radius r = 0.25 mm = 2.5 × 10^-4 m. Area A = π r^2 = 3.1416 × (2.5 × 10^-4)^2 ≈ 1.9635 × 10^-7 m^2. Length l = (R × A) / ρ = (10 × 1.9635 × 10^-7) / (1.6 × 10^-8) ≈ 122.7 m.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "How does the resistance of a semiconductor (like Silicon or Germanium) behave as temperature increases?",
+            "options_json": [
+              "Decreases exponentially due to thermal generation of free electron-hole pairs",
+              "Increases linearly due to lattice vibrations",
+              "Remains strictly constant",
+              "Becomes infinite"
+            ],
+            "correct_index": 0,
+            "difficulty": 4,
+            "expected_time_seconds": 40,
+            "explanation": "Semiconductors have negative temperature coefficients (NTC). Heating breaks covalent bonds, exponentially increasing carrier density n and lowering resistance.",
+            "misconception_hints_json": {"Increases linearly": "That is the behavior of conductors/metals, not semiconductors."}
+          },
+          {
+            "stem": "Two wires of the same material have lengths in ratio 1:2 and diameters in ratio 2:1. What is the ratio of their resistances?",
+            "options_json": ["1 : 8", "1 : 4", "1 : 2", "1 : 16"],
+            "correct_index": 0,
+            "difficulty": 5,
+            "expected_time_seconds": 50,
+            "explanation": "R = ρ l / (π (d/2)^2) ∝ l / d^2. Ratio R1/R2 = (l1/l2) × (d2/d1)^2 = (1/2) × (1/2)^2 = (1/2) × (1/4) = 1/8.",
+            "misconception_hints_json": {"1 : 4": "Remember diameter is squared in the area formula."}
+          }
+        ]
+      },
+      {
+        "title": "Series and Parallel Circuits",
+        "concept_tag": "series_parallel",
+        "order": 5,
+        "prerequisite_tag": "resistance_factors",
+        "explanations": {
+          "beginner": {
+            "body_markdown": "### Series vs Parallel Combinations\n\n### 1. Series Circuit (One Single Path)\n- Resistors are connected end-to-end.\n- **Current ($I$) is the SAME** through every resistor.\n- **Total Voltage ($V$) is divided**: $V = V_1 + V_2 + V_3$.\n- **Equivalent Resistance**: $R_{eq} = R_1 + R_2 + R_3$.\n- *Note*: If one bulb blows in series, the entire circuit breaks!\n\n### 2. Parallel Circuit (Multiple Branches)\n- Resistors are connected between two common junctions.\n- **Voltage ($V$) is the SAME** across every branch.\n- **Total Current ($I$) is divided**: $I = I_1 + I_2 + I_3$.\n- **Equivalent Resistance**: $\\frac{1}{R_{eq}} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\frac{1}{R_3}$.\n- *Note*: $R_{eq}$ is always **smaller than the smallest resistor**! Household appliances are always connected in parallel.",
+            "visual_spec": {
+              "type": "CircuitDiagram",
+              "props": {
+                "voltage": 12,
+                "resistors": [6, 3],
+                "mode": "parallel",
+                "interactive": true,
+                "caption": "Parallel Circuit: R_eq = (6 × 3)/(6 + 3) = 2Ω. Total current I = 12V / 2Ω = 6A."
+              }
+            }
+          },
+          "intermediate": {
+            "body_markdown": "### Calculating Equivalent Resistances in Mixed Networks\n\n- **Two Resistors in Parallel**: $R_{eq} = \\frac{R_1 R_2}{R_1 + R_2}$.\n- **Current Division Rule in Parallel**: $I_1 = I_{total} \\cdot \\left(\\frac{R_2}{R_1 + R_2}\\right)$.\n- **Voltage Division Rule in Series**: $V_1 = V_{total} \\cdot \\left(\\frac{R_1}{R_1 + R_2}\\right)$.",
+            "visual_spec": {
+              "type": "CircuitDiagram",
+              "props": {
+                "voltage": 24,
+                "resistors": [12, 6],
+                "mode": "mixed",
+                "interactive": true,
+                "caption": "Current divides inversely proportional to branch resistance."
+              }
+            }
+          },
+          "advanced": {
+            "body_markdown": "### Network Theorems: Delta-Wye and Bridge Networks\n\n- **Wheatstone Bridge**: When $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$, no current flows through the central galvanometer branch ($V_{galv} = 0$).\n- **Delta-Star (Δ-Y) Transformation**: $R_A = \\frac{R_1 R_2}{R_1 + R_2 + R_3}$. Useful for solving complex bridge and cube resistor networks.",
+            "visual_spec": {
+              "type": "CircuitDiagram",
+              "props": {
+                "voltage": 10,
+                "resistors": [10, 10, 10, 10],
+                "mode": "bridge",
+                "interactive": true,
+                "caption": "Balanced Wheatstone Bridge: Galvanometer current is zero."
+              }
+            }
+          }
+        },
+        "flashcards": [
+          {"front": "What is the equivalent resistance formula for three resistors in series?", "back": "Req = R1 + R2 + R3.", "concept_tag": "series_parallel"},
+          {"front": "What is the equivalent resistance formula for two resistors in parallel?", "back": "Req = (R1 × R2) / (R1 + R2), or 1/Req = 1/R1 + 1/R2.", "concept_tag": "series_parallel"},
+          {"front": "In a series circuit, what quantity remains the same across all components?", "back": "Electric Current (I) is identical through every component.", "concept_tag": "series_parallel"},
+          {"front": "In a parallel circuit, what quantity remains the same across all branches?", "back": "Potential Difference (Voltage V) is identical across all parallel branches.", "concept_tag": "series_parallel"},
+          {"front": "Why are household appliances connected in parallel rather than in series?", "back": "1. Each appliance receives full supply voltage. 2. Each operates independently with its own switch. 3. Total resistance is low.", "concept_tag": "series_parallel"},
+          {"front": "What is the equivalent resistance of three 6 Ω resistors connected in parallel?", "back": "Req = 6 / 3 = 2 Ω.", "concept_tag": "series_parallel"}
+        ],
+        "questions": [
+          {
+            "stem": "Three resistors of 2 Ω, 3 Ω, and 6 Ω are connected in series with a 12 V battery. What is the total current in the circuit?",
+            "options_json": ["1.09 A", "12 A", "1.0 A", "2.0 A"],
+            "correct_index": 0,
+            "difficulty": 1,
+            "expected_time_seconds": 30,
+            "explanation": "Total resistance R_eq = 2 + 3 + 6 = 11 Ω. Current I = V / R_eq = 12 V / 11 Ω ≈ 1.09 A.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "Two resistors of 6 Ω and 3 Ω are connected in parallel. What is their equivalent resistance?",
+            "options_json": ["2 Ω", "9 Ω", "18 Ω", "4.5 Ω"],
+            "correct_index": 0,
+            "difficulty": 1,
+            "expected_time_seconds": 30,
+            "explanation": "R_eq = (6 × 3) / (6 + 3) = 18 / 9 = 2 Ω.",
+            "misconception_hints_json": {"9 Ω": "That is series sum (6+3). In parallel: 1/Req = 1/6 + 1/3 = 3/6 = 1/2 => Req = 2Ω."}
+          },
+          {
+            "stem": "How can three resistors of 6 Ω each be connected to give an equivalent resistance of 9 Ω?",
+            "options_json": [
+              "Two in parallel, connected in series with the third",
+              "All three in series",
+              "All three in parallel",
+              "Two in series, connected in parallel with the third"
+            ],
+            "correct_index": 0,
+            "difficulty": 2,
+            "expected_time_seconds": 45,
+            "explanation": "Two 6 Ω in parallel give R_p = 6/2 = 3 Ω. In series with the third 6 Ω resistor: R_total = 3 + 6 = 9 Ω.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "An electric circuit contains three identical 60 W light bulbs connected in series. If one bulb burns out (filament snaps), what happens to the other two bulbs?",
+            "options_json": [
+              "Both go out immediately because the open circuit breaks the current path",
+              "The remaining two bulbs glow brighter",
+              "The remaining two bulbs glow dimmer",
+              "Only the adjacent bulb goes out"
+            ],
+            "correct_index": 0,
+            "difficulty": 2,
+            "expected_time_seconds": 30,
+            "explanation": "In a series circuit, there is only one continuous path for current. A broken filament opens the circuit, halting all current.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "A 12 V battery is connected to a parallel combination of 4 Ω and 12 Ω resistors. What current flows through the 4 Ω resistor?",
+            "options_json": ["3 A", "1 A", "4 A", "0.75 A"],
+            "correct_index": 0,
+            "difficulty": 3,
+            "expected_time_seconds": 40,
+            "explanation": "In parallel, full voltage (12 V) is applied across each branch. Current I_4 = V / R_1 = 12 V / 4 Ω = 3 A.",
+            "misconception_hints_json": {"4 A": "4A is the total circuit current (3A + 1A = 4A)."}
+          },
+          {
+            "stem": "In a balanced Wheatstone bridge, the four arm resistances are P = 10 Ω, Q = 20 Ω, R = 30 Ω, and S. What is the value of unknown resistance S?",
+            "options_json": ["60 Ω", "15 Ω", "40 Ω", "50 Ω"],
+            "correct_index": 0,
+            "difficulty": 4,
+            "expected_time_seconds": 45,
+            "explanation": "Wheatstone balance condition: P / Q = R / S => 10 / 20 = 30 / S => 1/2 = 30 / S => S = 60 Ω.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "Twelve identical resistors of resistance R each are connected to form the edges of a cube. What is the equivalent resistance between two diagonally opposite body vertices?",
+            "options_json": ["(5/6) R", "(3/4) R", "(7/12) R", "(1/2) R"],
+            "correct_index": 0,
+            "difficulty": 5,
+            "expected_time_seconds": 60,
+            "explanation": "By symmetry and nodal analysis: entering vertex divides into 3 branches (each current I/3), which then branch into 6 edges (each I/6), and rejoin into 3 edges (each I/3). Total voltage drop V = (I/3)R + (I/6)R + (I/3)R = (5/6) I R. Therefore R_eq = (5/6) R.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "Two wires A and B made of same material have lengths in ratio 1:3 and cross-sectional areas in ratio 1:2. If connected in parallel across a battery, what is the ratio of power dissipated P_A : P_B?",
+            "options_json": ["3 : 2", "2 : 3", "1 : 6", "6 : 1"],
+            "correct_index": 0,
+            "difficulty": 5,
+            "expected_time_seconds": 60,
+            "explanation": "R = ρ l / A. R_A / R_B = (l_A/l_B) × (A_B/A_A) = (1/3) × (2/1) = 2/3. In parallel, voltage is identical: Power P = V^2 / R. Therefore P_A / P_B = R_B / R_A = 3/2.",
+            "misconception_hints_json": {"2 : 3": "Remember P = V^2 / R in parallel, so power is inversely proportional to resistance."}
+          }
+        ]
+      }
+    ]
+  }
+}

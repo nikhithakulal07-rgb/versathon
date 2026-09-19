@@ -1,0 +1,176 @@
+{
+  "chapter_title": "Accounting Principles & Framework",
+  "subject_code": "C11-ACC",
+  "topic": {
+    "title": "Fundamental Accounting Principles & Equation",
+    "description": "Business entity concept, money measurement, dual aspect principle, accrual basis, and the fundamental accounting equation Assets = Liabilities + Capital.",
+    "order": 1,
+    "subtopics": [
+      {
+        "title": "Accounting Concepts and the Accounting Equation",
+        "concept_tag": "accounting_principles_equation",
+        "order": 1,
+        "prerequisite_tag": null,
+        "explanations": {
+          "beginner": {
+            "body_markdown": "### The Fundamental Accounting Equation\n\nIn business, every financial transaction affects at least two accounts (known as **Double Entry Bookkeeping**).\n\n### The Golden Equation:\n$$\\text{Assets} = \\text{Liabilities} + \\text{Capital (Owner's Equity)}$$\n\n- **Assets**: Valuable resources owned by the business (Cash, Inventory, Machinery, Debtors).\n- **Liabilities**: Debts owed to outsiders (Bank loans, Creditors).\n- **Capital**: Funds invested by the owner.\n\n### Key Concepts:\n1. **Business Entity**: The business and its owner are two separate legal and accounting entities!\n2. **Dual Aspect**: Every debit has an equal and corresponding credit.",
+            "visual_spec": {
+              "type": "FlowChart",
+              "props": {
+                "nodes": [
+                  {"id": "assets", "label": "Total Assets (Cash, Stock, Equipment)", "color": "#10B981"},
+                  {"id": "equals", "label": "MUST EQUAL", "color": "#6366F1"},
+                  {"id": "liabilities", "label": "Liabilities (Debts to Outsiders)", "color": "#EF4444"},
+                  {"id": "plus", "label": "+", "color": "#F59E0B"},
+                  {"id": "equity", "label": "Owner's Equity (Capital + Net Profits)", "color": "#3B82F6"}
+                ],
+                "edges": [
+                  {"from": "assets", "to": "equals"},
+                  {"from": "equals", "to": "liabilities"},
+                  {"from": "liabilities", "to": "plus"},
+                  {"from": "plus", "to": "equity"}
+                ],
+                "caption": "The Fundamental Accounting Balance Sheet Equation."
+              }
+            }
+          },
+          "intermediate": {
+            "body_markdown": "### Accrual Principle & Matching Concept\n\n- **Accrual Basis**: Revenue is recognized when earned (not when cash is received), and expenses are recognized when incurred (not when cash is paid).\n- **Matching Principle**: All expenses incurred to earn a specific revenue must be matched and recognized in the same accounting period.",
+            "visual_spec": {
+              "type": "ProcessTimeline",
+              "props": {
+                "steps": [
+                  {"title": "Transaction Occurs", "desc": "Goods delivered on credit to customer on March 15."},
+                  {"title": "Revenue Recognized", "desc": "Sales recorded in March under Accrual Principle."},
+                  {"title": "Cash Received", "desc": "Customer pays cash on April 20. Only Debtors account reduces, no new revenue."}
+                ],
+                "caption": "Accrual accounting timeline vs Cash flow."
+              }
+            }
+          },
+          "advanced": {
+            "body_markdown": "### IFRS and Conservatism / Prudence Convention\n\n- **Prudence Concept**: Anticipate no profits, but provide for all possible losses (e.g., Provision for Doubtful Debts, Valuing Inventory at lower of cost or net realizable value).\n- **Substance Over Form**: Economic substance of transactions takes precedence over their strict legal form.",
+            "visual_spec": {
+              "type": "ProcessTimeline",
+              "props": {
+                "steps": [
+                  {"title": "Identify Economic Asset", "desc": "Determine future economic benefits control."},
+                  {"title": "Measure at Fair Value / Cost", "desc": "Apply lowest recoverable amount convention."},
+                  {"title": "Disclose Contingencies", "desc": "Footnotes and provisions per GAAP/IFRS standards."}
+                ],
+                "caption": "Application of Prudence and Substance over Form."
+              }
+            }
+          }
+        },
+        "flashcards": [
+          {"front": "State the fundamental Accounting Equation.", "back": "Assets = Liabilities + Capital (Owner's Equity).", "concept_tag": "accounting_principles_equation"},
+          {"front": "What does the Business Entity Concept state?", "back": "A business is treated as a distinct legal/economic entity separate from its owners.", "concept_tag": "accounting_principles_equation"},
+          {"front": "What is the difference between Cash Basis and Accrual Basis of accounting?", "back": "Accrual records revenues/expenses when earned/incurred, whereas Cash records only when money changes hands.", "concept_tag": "accounting_principles_equation"},
+          {"front": "What is the Prudence (Conservatism) principle?", "back": "Anticipate all prospective losses, but do not anticipate unrealized gains.", "concept_tag": "accounting_principles_equation"},
+          {"front": "If a business buys furniture for $5,000 cash, how is the accounting equation affected?", "back": "Total assets remain unchanged: Furniture (Asset) increases by $5,000 and Cash (Asset) decreases by $5,000.", "concept_tag": "accounting_principles_equation"},
+          {"front": "What is the Dual Aspect principle?", "back": "Every transaction impacts at least two accounts such that Total Debits = Total Credits.", "concept_tag": "accounting_principles_equation"}
+        ],
+        "questions": [
+          {
+            "stem": "If total assets of a business are $100,000 and owner's capital is $60,000, what is the amount of outside liabilities?",
+            "options_json": ["$40,000", "$160,000", "$60,000", "$100,000"],
+            "correct_index": 0,
+            "difficulty": 1,
+            "expected_time_seconds": 25,
+            "explanation": "Assets = Liabilities + Capital => Liabilities = Assets - Capital = 100,000 - 60,000 = $40,000.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "According to the Business Entity Concept, the owner's personal house is:",
+            "options_json": [
+              "Excluded from the balance sheet of the business",
+              "Included as a fixed asset of the firm",
+              "Treated as an outside liability",
+              "Depreciated annually in the firm's profit and loss account"
+            ],
+            "correct_index": 0,
+            "difficulty": 1,
+            "expected_time_seconds": 25,
+            "explanation": "Personal assets and liabilities of the proprietor are distinct from the commercial enterprise.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "Goods costing $8,000 were sold for $10,000 cash. What is the net effect on the accounting equation?",
+            "options_json": [
+              "Cash increases by $10,000, Stock decreases by $8,000, and Capital increases by $2,000",
+              "Cash increases by $10,000, Capital increases by $10,000",
+              "Cash increases by $8,000, Stock decreases by $8,000",
+              "Assets increase by $10,000, Liabilities increase by $10,000"
+            ],
+            "correct_index": 0,
+            "difficulty": 2,
+            "expected_time_seconds": 40,
+            "explanation": "Cash (+10,000), Stock (-8,000) => Net Assets increase by $2,000. Profit of $2,000 is added to Owner's Capital.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "Valuing inventory at cost or net realizable value (market value), whichever is lower, is a direct application of which accounting convention?",
+            "options_json": ["Prudence / Conservatism", "Materiality", "Consistency", "Historical Cost"],
+            "correct_index": 0,
+            "difficulty": 2,
+            "expected_time_seconds": 30,
+            "explanation": "The Prudence convention ensures possible inventory losses are recognized immediately while unrealized gains are deferred.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "Under the accrual basis of accounting, when should salary paid in advance (prepaid salary) for the next financial year be recognized as an expense?",
+            "options_json": [
+              "In the next financial year when the employee's services are rendered",
+              "Immediately in the current year when cash was disbursed",
+              "Never, it is ignored permanently",
+              "Equally divided across 10 years"
+            ],
+            "correct_index": 0,
+            "difficulty": 3,
+            "expected_time_seconds": 35,
+            "explanation": "Prepaid expenses represent current assets; they are charged to the Profit & Loss statement in the period the benefit is actually consumed.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "A firm purchased machinery on credit for $25,000. How does this transaction affect the accounting equation?",
+            "options_json": [
+              "Assets (Machinery) increase by $25,000 and Liabilities (Creditors) increase by $25,000",
+              "Assets increase by $25,000 and Capital increases by $25,000",
+              "Only Assets increase by $25,000 with no other change",
+              "Assets decrease by $25,000 and Liabilities increase by $25,000"
+            ],
+            "correct_index": 0,
+            "difficulty": 2,
+            "expected_time_seconds": 30,
+            "explanation": "Machinery (Asset) increases by $25k and Creditors/Accounts Payable (Liability) increases by $25k. Equation remains balanced: +25k = +25k + 0.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "Why are non-financial events, such as the resignation of a highly talented chief engineer, NOT recorded in standard financial accounting books?",
+            "options_json": [
+              "Money Measurement Concept (only events measurable in monetary units are recorded)",
+              "Dual Aspect Concept",
+              "Going Concern Concept",
+              "Matching Concept"
+            ],
+            "correct_index": 0,
+            "difficulty": 3,
+            "expected_time_seconds": 30,
+            "explanation": "The Money Measurement concept mandates that only transactions quantifiable in currency terms enter the accounting ledger.",
+            "misconception_hints_json": {}
+          },
+          {
+            "stem": "If opening capital is $50,000, profits during the year are $15,000, drawings by owner are $5,000, and fresh capital introduced is $10,000, what is the closing capital?",
+            "options_json": ["$70,000", "$60,000", "$75,000", "$65,000"],
+            "correct_index": 0,
+            "difficulty": 4,
+            "expected_time_seconds": 45,
+            "explanation": "Closing Capital = Opening Capital + Fresh Capital + Profit - Drawings = 50,000 + 10,000 + 15,000 - 5,000 = $70,000.",
+            "misconception_hints_json": {}
+          }
+        ]
+      }
+    ]
+  }
+}
